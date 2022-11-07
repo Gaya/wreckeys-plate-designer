@@ -1,0 +1,106 @@
+@import 'reset';
+@import 'prefix';
+
+:root {
+  --main: #c03319;
+  --second: #a4c5ab;
+  --bg: #ffffff;
+  --text: #000100;
+}
+
+@font-face {
+  font-family: "JetBrainsMono-SemiBold";
+  font-style: normal;
+  font-weight: 400;
+  src: local("JetBrainsMono-SemiBold"), url("../fonts/JetBrainsMono-SemiBold.woff2");
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "JetBrainsMono-SemiBold", monospace;
+  line-height: 1.4em;
+}
+
+body::before {
+  content: "";
+  background: var(--main);
+  display: block;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+a {
+  color: var(--main);
+}
+
+img {
+  display: block;
+}
+
+.container {
+  max-width: 800px;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+nav {
+  margin: 2em 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header img {
+  width: 300px;
+  margin: 1em 0;
+}
+
+header p {
+  font-size: 1.2em;
+  line-height: 1.7em;
+  margin: 2em auto;
+  max-width: 15em;
+}
+
+.intro .intro-picture {
+  margin: 1em 0 4em;
+  display: flex;
+  justify-content: center;
+}
+
+.intro p {
+  margin: 2em 0;
+}
+
+.intro .float-left {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (min-width: 600px) {
+  html {
+    font-size: 22px;
+  }
+
+  .intro .float-left {
+    float: left;
+    margin: 1em 2em 1em 0;
+  }
+}
