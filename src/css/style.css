@@ -26,6 +26,10 @@ body::before {
     background: var(--main);
     display: block;
     height: 6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 a {
