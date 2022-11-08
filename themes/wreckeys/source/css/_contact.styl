@@ -1,0 +1,68 @@
+.contact {
+  margin-top: 3em;
+  border-top: 3px solid var(--main);
+  padding-top: 3em;
+  padding-bottom: 1em;
+
+  p {
+    margin: 2em 0;
+  }
+
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    border: none;
+    margin: 0.5em 0;
+
+    @media only screen and (min-width: 600px) {
+      flex-direction: row;
+
+      input {
+        margin-top: -2px;
+      }
+
+      textarea {
+        margin-top: -1px;
+      }
+    }
+  }
+
+  label {
+    margin-right: 0.5em;
+  }
+
+  input {
+    display: block;
+    flex-grow: 1;
+    padding: 2px 0;
+    border: 0;
+    border-bottom: 1px solid var(--text);
+    margin-bottom: 1px;
+    margin-top: 0.25em;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid var(--main);
+      margin-bottom: 0;
+    }
+  }
+
+  textarea {
+    margin-top: 0.25em;
+    flex-grow: 1;
+    border: 0;
+    border-bottom: 1px solid var(--text);
+    margin-bottom: 1px;
+
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid var(--main);
+      margin-bottom: 0;
+    }
+  }
+
+  button {
+    margin-top: 1em;
+  }
+}

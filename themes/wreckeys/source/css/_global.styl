@@ -1,0 +1,89 @@
+:root {
+  --main: #c03319;
+  --secondary: #a4c5ab;
+  --bg: #ffffff;
+  --text: #000100;
+}
+
+@font-face {
+  font-family: "JetBrainsMono-SemiBold";
+  font-style: normal;
+  font-weight: 400;
+  src: local("JetBrainsMono-SemiBold"), url("../fonts/JetBrainsMono-SemiBold.woff2");
+}
+
+html {
+  @media only screen and (min-width: 600px) {
+    font-size: 22px;
+  }
+}
+
+html, body {
+  background: var(--bg);
+  line-height: 1.4em;
+}
+
+html, body, input, textarea, button {
+  color: var(--text);
+  font-family: "JetBrainsMono-SemiBold", monospace;
+  line-height: 1.4em;
+}
+
+input, textarea, button {
+  font-size: 1em;
+}
+
+button {
+  border: 1px solid var(--text);
+  background: transparent;
+  border-radius: 6px;
+  color: var(--text);
+  padding: 11px 22px;
+  text-transform: uppercase;
+
+  &:hover, &:active, &:focus {
+    outline: none;
+    color: var(--main);
+    border-color: var(--main);
+    cursor: pointer;
+    padding: 10px 21px;
+    border-width: 2px;
+  }
+}
+
+body::before {
+  content: "";
+  background: var(--main);
+  display: block;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+a {
+  color: var(--main);
+
+  &:hover, &:active, &:focus {
+    color: var(--text);
+  }
+}
+
+img {
+  display: block;
+}
+
+.container {
+  max-width: 800px;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+footer {
+  padding: 1em;
+  background: var(--main);
+  color: var(--bg);
+  font-size: 0.8em;
+  margin-top: 3em;
+}

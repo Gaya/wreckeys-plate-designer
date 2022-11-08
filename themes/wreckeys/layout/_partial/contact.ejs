@@ -1,0 +1,51 @@
+<section class="contact container">
+    <a id="contact"></a>
+    <h2>Let's get in touch!</h2>
+
+    <p>
+        Do you have any questions about my projects or want to elaborate? Drop them here. Or even
+        better... send me an email at: <a href="mailto: hi@wreckeys.com">hi@wreckeys.com</a>
+    </p>
+
+    <form name="contact" action="/thanks" method="post" data-netlify="true">
+        <fieldset>
+            <label for="name">
+                Your name:
+            </label>
+            <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="What's your name?"
+                required
+            />
+        </fieldset>
+        <fieldset>
+            <label for="email">
+                Your email address:
+            </label>
+            <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Where can I reach you?"
+                required
+            />
+        </fieldset>
+        <fieldset>
+            <label for="message">
+                Message:
+            </label>
+            <textarea
+                name="message"
+                id="message"
+                placeholder="Tell me what's on your mind..."
+                rows=3
+                required
+            ></textarea>
+        </fieldset>
+        <button type="submit">
+            Send in message
+        </button>
+    </form>
+</section>
