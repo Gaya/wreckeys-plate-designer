@@ -20,7 +20,13 @@ html {
 
 html, body {
   background: var(--bg);
-  line-height: 1.4em;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 html, body, input, textarea, button {
@@ -74,10 +80,25 @@ img {
   display: block;
 }
 
+main {
+  flex-grow: 1;
+}
+
+p {
+ margin: 2em 0;
+}
+
 .container {
   max-width: 800px;
   padding: 0 1em;
   margin: 0 auto;
+}
+
+.separator {
+  margin-top: 1em;
+  border-top: 3px solid var(--main);
+  padding-top: 3em;
+  padding-bottom: 1em;
 }
 
 footer {
