@@ -5,8 +5,8 @@
 # Site
 title: Wreckey's Custom MIDI
 subtitle: ''
-description: ''
-keywords:
+description: 'Custom-made MIDI controllers for the enthusiasts'
+keywords: MIDI, rack, 19", eurorack, keyboard
 author: Gaya Kessler
 language: en
 timezone: 'CET'
@@ -17,7 +17,7 @@ url: https://wreckeys.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.md' from permalinks
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory

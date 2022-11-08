@@ -12,7 +12,7 @@
   },
   "homepage": "https://github.com/Gaya/wreckeys-site#readme",
   "scripts": {
-    "build": "hexo generate",
+    "build": "rm -rf public && hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
