@@ -103,3 +103,7 @@ theme: wreckeys
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+html_minifier:
+  minifyJS: true
+  minifyCSS: true
