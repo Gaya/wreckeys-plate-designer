@@ -40,20 +40,19 @@ input, textarea, button {
 }
 
 button {
-  border: 1px solid var(--text);
-  background: transparent;
+  background-color: var(--main);
   border-radius: 6px;
-  color: var(--text);
-  padding: 11px 22px;
+  color: var(--bg);
+  padding: 10px 21px;
   text-transform: uppercase;
+  border: 2px solid var(--main);
 
   &:hover, &:active, &:focus {
     outline: none;
+    background-color: transparent;
     color: var(--main);
     border-color: var(--main);
     cursor: pointer;
-    padding: 10px 21px;
-    border-width: 2px;
   }
 }
 
