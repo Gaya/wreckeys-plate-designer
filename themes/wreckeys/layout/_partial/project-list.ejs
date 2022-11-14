@@ -1,4 +1,16 @@
-<section class="project-list container separator">
+<section class="projects container separator">
     <a id="projects"></a>
-    <h2>Projects</h2>
+    <h2>Projects I've Done</h2>
+
+    <% if (site.posts.length > 0) { %>
+    <ul class="project-list">
+        <% site.posts.forEach((post) => { %>
+            <li>
+                <a href="<%- post.path %>"><%- post.title %></a>
+                <span class="post-short"><%- post.short %></span>
+                <span class="post-date">Added on <%- date(post.date, 'YYYY/M/D') %></span>
+            </li>
+        <% }); %>
+    </ul>
+    <% } %>
 </section>
