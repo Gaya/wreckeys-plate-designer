@@ -7,7 +7,9 @@
 var title = page.title ? `${page.title} - ${config.title}` : config.title;
 %>
 <title><%= title %></title>
-<% if (page.description) { %>
+<% if (is_home()) { %>
+  <meta name="description" content="I create custom-made MIDI controllers which can be mounted in 19 inch racks or Eurorack" />
+<% } else if (page.description) { %>
   <meta name="description" content="<%= page.description %>" />
 <% } %>
 
