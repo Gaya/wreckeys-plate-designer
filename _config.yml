@@ -40,7 +40,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -107,3 +107,7 @@ deploy:
 html_minifier:
   minifyJS: true
   minifyCSS: true
+
+marked:
+  prependRoot: true
+  postAsset: true

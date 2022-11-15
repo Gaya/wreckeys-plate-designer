@@ -1,18 +1,18 @@
 nav {
   padding: 2em 0;
-}
 
-nav ul {
-  display: flex;
-  justify-content: space-around;
-}
+  ul {
+    display: flex;
+    justify-content: space-around;
 
-nav ul a {
-  text-decoration: none;
-  color: var(--text);
+    a {
+      text-decoration: none;
+      color: var(--text);
 
-  &:hover, &:active {
-    text-decoration: underline;
+      &:hover, &:active {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -20,16 +20,22 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
 
-header img {
-  width: 300px;
-  margin: 1em 0;
-}
+  picture {
+    margin: 1em 0 4em;
+    display: flex;
+    justify-content: center;
+  }
 
-header p {
-  font-size: 1.2em;
-  line-height: 1.7em;
-  margin: 2em auto;
-  max-width: 15em;
+  a img {
+    width: 300px;
+    margin: 1em 0;
+  }
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.7em;
+    margin: 2em auto;
+    max-width: 15em;
+  }
 }

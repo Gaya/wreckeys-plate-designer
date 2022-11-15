@@ -7,7 +7,7 @@
         <% site.posts.forEach((post) => { %>
             <li>
                 <a href="<%- post.path %>"><%- post.title %></a>
-                <span class="post-short"><%- post.short %></span>
+                <span class="post-short"><%- post.description %></span>
                 <span class="post-date">Added on <%- date(post.date, 'YYYY/M/D') %></span>
             </li>
         <% }); %>
