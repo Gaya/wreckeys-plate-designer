@@ -8,9 +8,11 @@ nav {
     a {
       text-decoration: none;
       color: var(--text);
+      margin: 0.1em 0.4em;
 
-      &:hover, &:active {
-        text-decoration: underline;
+      &:hover, &:active, &:focus {
+        padding: 0.1em 0.4em;
+        margin: 0;
       }
     }
   }
@@ -27,9 +29,15 @@ header {
     justify-content: center;
   }
 
-  a img {
-    width: 300px;
-    margin: 1em 0;
+  a {
+    &:hover, &:active, &:focus {
+      background: none;
+    }
+
+    img {
+      width: 300px;
+      margin: 1em 0;
+    }
   }
 
   p {

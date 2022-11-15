@@ -32,11 +32,11 @@ When the mixer case arrived I fitted in the Deepmind and I quickly learned that 
 
 I looked around on the internet for 19" mountable MIDI controllers, but didn't find what I was looking for. I essentially just use a small key bed and a pitch bend and mod wheel for playing live. The music isn't that keyboard heavy, but it's nice to have at least these inputs.
 
-![Seeing opportunities](how_01.jpeg)
+![Seeing opportunities](how_01.webp)
 
 Then I was reminded about one of my old favourite desktop mini MIDI controllers which would actually fit perfectly inside the room which was left available. I screwed it open to see how hard it would be to use its insides.
 
-![Akai LPK25 insides](how_02.jpeg)
+![Akai LPK25 insides](how_02.webp)
 
 Looks easy enough! I had some spare time that weekend and nothing better to do, and so I thought:  Let's give this a try!
 
@@ -44,7 +44,7 @@ Looks easy enough! I had some spare time that weekend and nothing better to do, 
 
 Because the Akai LPK25 sadly has no pitch bend and mod wheel I need to see if I could somehow fit those next to the key bed and buttons on a plate mounted in the rack.
 
-![Planning for room](how_03.jpeg)
+![Planning for room](how_03.webp)
 
 On a piece of cardboard I roughly sketched out how the layout of the synth was going to look like.
 
@@ -58,7 +58,7 @@ I looked at some websites for Arduino MIDI setups and potentiometers, there are 
 
 As I was talking about my idea a friend offered me a big case of Arduino related stuff, so I could have a go at creating my idea.
 
-![Reading values from a joystick](how_04.jpeg)
+![Reading values from a joystick](how_04.webp)
 
 It so happens that this kit also included a joystick which was really easy to connect to an Arduino.
 
@@ -72,7 +72,7 @@ My plan was to have a Teensy board which would connect to my MIDI host and act a
 
 When my parts finally came in it was time to assemble the setup in the breadboard again for debugging.
 
-![Debugging Teensy](how_05.jpeg)
+![Debugging Teensy](how_05.webp)
 
 As you can see I added a sliding potentiometer as my input for mod. Also notice that the joystick looks a bit different.
 
@@ -90,11 +90,11 @@ Next came the part I was most nervous for: creating the plate and making the hol
 
 The first step of cutting the piece of wood to my desired dimensions was easy enough.
 
-![The plate clean](how_06.jpeg)
+![The plate clean](how_06.webp)
 
 I then drew all the different parts on the plank and went to work with a Dremel and saws. This was the result.
 
-![Plate version 1](how_07.jpeg)
+![Plate version 1](how_07.webp)
 
 After I tried to fit all the parts of the controller in there I realised I made a mistake and had to redo the whole plate. So I did that the next day and this time everything was alright.
 
@@ -102,21 +102,21 @@ After I tried to fit all the parts of the controller in there I realised I made 
 
 First I fitted the buttons and pcb of the Akai LPK25 to the board.
 
-![Akai buttons](how_08.jpeg)
+![Akai buttons](how_08.webp)
 
 Secured to the board with some screws and washers for spacing and keeping it in place.
 
-![Akai pcb](how_09.jpeg)
+![Akai pcb](how_09.webp)
 
 Next was securing the key bed which was actually pretty okay. It was originally attached to the top piece of plastic and was able to use screws and fix the key bed on the board directly.
 
-![Akai key bed](how_10.jpeg)
+![Akai key bed](how_10.webp)
 
 After that I wanted to fit the sliding potentiometer and the joystick, so they were usable on the other side of the board.
 
 The slider was easy enough. After finding out how it would align perfectly I went and glued it directly on the board. Maybe not the best solution, but it works!
 
-![Joystick and potentiometer](how_11.jpeg)
+![Joystick and potentiometer](how_11.webp)
 
 The joystick needed some small pieces of wood as spacing, which I also glued directly on the board. I also decided to add a little metal plate behind the joystick and screw it to the plate as stability.
 
@@ -124,17 +124,17 @@ The joystick needed some small pieces of wood as spacing, which I also glued dir
 
 The last step was wiring the two beasts up fitting it in the rack.
 
-![All wired up](how_12.jpeg)
+![All wired up](how_12.webp)
 
 Some soldering and connecting later this was the result. Not really that complicated, but happy with the result.
 
 I glued the Teensy's usb cable to the board and not the Teensy itself, this makes it possible to still remove it, and it actually sits there pretty firm in place.
 
-![Stand alone done](how_13.jpeg)
+![Stand alone done](how_13.webp)
 
 All that was left was to secure the board in my mixer case and try it out.
 
-![In the case](how_14.jpeg)
+![In the case](how_14.webp)
 
 After some changes and tweaks in the code it works perfectly, and I am really with how it came out.
 

@@ -43,8 +43,18 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.5em;
   line-height: 1.3em;
+}
+
+h1, h2 {
+  background: var(--text);
+  color: var(--bg);
+  box-decoration-break: clone;
+  padding: 0.1em 0.3em;
+  margin-left: -0.3em;
+  margin-right: -0.3em;
+  display: inline;
 }
 
 input, textarea, button {
@@ -83,7 +93,11 @@ a {
   color: var(--main);
 
   &:hover, &:active, &:focus {
-    color: var(--text);
+    background: var(--text);
+    color: var(--bg);
+    box-decoration-break: clone;
+    padding: 0;
+    text-decoration: none;
   }
 }
 
