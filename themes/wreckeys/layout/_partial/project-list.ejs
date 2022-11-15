@@ -4,7 +4,7 @@
 
     <% if (site.posts.length > 0) { %>
     <ul class="project-list">
-        <% site.posts.forEach((post) => { %>
+        <% site.posts.sort('date', 'desc').forEach((post) => { %>
             <li>
                 <a href="<%- post.path %>"><%- post.title %></a>
                 <span class="post-short"><%- post.description %></span>
