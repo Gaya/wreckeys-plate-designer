@@ -1,0 +1,26 @@
+@import 'reset';
+
+:root {
+  --main: #c03319;
+  --secondary: #a4c5ab;
+  --bg: #ffffff;
+  --text: #000100;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 22px;
+}
+
+html, body {
+  background: var(--bg);
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+}
