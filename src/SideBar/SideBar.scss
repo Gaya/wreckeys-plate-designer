@@ -10,4 +10,19 @@ aside {
         font-size: 1em;
         padding: 0.5em 2em;
     }
+
+    fieldset {
+        border: 0;
+        padding: 1em;
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        select {
+            display: block;
+            width: 100%;
+        }
+    }
 }

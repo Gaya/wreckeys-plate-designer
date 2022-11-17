@@ -3,6 +3,8 @@ import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 interface AppState {
   plate: {
     type: '19inch' | 'eurorack' | 'custom';
+    width: number;
+    height: number;
   };
 }
 
@@ -18,6 +20,8 @@ interface AppContextShape {
 const defaultState: AppState = {
   plate: {
     type: '19inch',
+    width: 19,
+    height: 3,
   },
 };
 
