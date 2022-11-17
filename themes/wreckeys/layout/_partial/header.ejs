@@ -15,9 +15,15 @@
     </ul>
 </nav>
 <header class="container">
-    <a href="/">
-        <img src="/images/wreckeys-logo.svg" width=300 height=167 alt="Wreckey's Custom MIDI" />
-    </a>
+    <% if (is_home()) { %>
+        <h1 class="header-home">
+    <% } %>
+        <a href="<%= config.url %>">
+            <img src="/images/wreckeys-logo.svg" width=300 height=167 alt="Wreckey's Custom MIDI" title="Wreckey's Custom MIDI" />
+        </a>
+    <% if (is_home()) { %>
+        </h1>
+    <% } %>
 
     <% if (is_home()) { %>
         <p>
@@ -37,5 +43,4 @@
             />
         </picture>
     <% } %>
-
 </header>
