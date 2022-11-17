@@ -26,14 +26,19 @@ var title = page.title ? `${page.title} - ${config.title}` : config.title;
 <meta name="theme-color" content="#c03319">
 
 <meta property="og:title" content="<%= title %>"/>
-<% if (page.description) { %>
+<% if (is_home()) { %>
+  <meta property="og:description" content="I create custom-made MIDI controllers which can be mounted in 19 inch racks or Eurorack" />
+<% } else if (page.description) { %>
   <meta property="og:description" content="<%= page.description %>" />
 <% } %>
 <meta property="og:url" content="<%= config.url %>/<%= page.canonical_path.replace('index.html', '') %>" />
 <meta property="og:site_name" content="<%= config.title %>" />
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="/images/og-poster.jpg" />
+<meta property="og:image" content="<%= config.url %>/images/og-poster.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="<%= config.url %>/images/og-poster.jpg" />
 
 <%- css('css/style.css') %>
 
