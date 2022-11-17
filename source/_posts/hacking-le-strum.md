@@ -21,7 +21,7 @@ be a lot easier to handle.
 On Le Strum's page you can find an explanation of how to add external buttons to the device to be
 able to make note input easier.
 
-![Explanation of connections](le-strum-schematics.png)
+![Explanation of connections](le-strum-schematics.webp)
 
 This is the image on the "Hints for Mods" page. What it explains is that we need to look at the
 buttons as a matrix. The "rows" of buttons will all connect from the "ground" of the inputs on the 
