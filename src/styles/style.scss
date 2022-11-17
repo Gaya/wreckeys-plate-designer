@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 html, body {
@@ -23,4 +23,9 @@ body {
   flex-direction: column;
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
+}
+
+#root, .App {
+  flex-grow: 1;
+  display: flex;
 }
