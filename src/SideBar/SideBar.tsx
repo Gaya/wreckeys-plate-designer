@@ -22,7 +22,7 @@ function SideBar() {
     <aside>
       <h2>Plate Settings</h2>
       <fieldset>
-        <label htmlFor="type">Plate Type</label>
+        <label htmlFor="type">Plate Size</label>
         <Select
           name="type"
           value={type}

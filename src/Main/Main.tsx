@@ -1,9 +1,17 @@
+import { useAppContext } from '../AppContextProvider';
+
 import './Main.scss';
 
 function Main() {
+  const { state } = useAppContext();
+
+  const { plate } = state;
+
   return (
     <main>
-      This is the main window
+      <svg>
+
+      </svg>
     </main>
   );
 }
