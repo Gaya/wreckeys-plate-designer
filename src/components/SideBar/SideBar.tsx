@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
-import { useAppContext } from '../AppContextProvider';
-import Select from '../Components/Select/Select';
+import { useAppContext } from '../App/AppContextProvider';
+import Select from '../Select/Select';
 
 import './SideBar.scss';
 

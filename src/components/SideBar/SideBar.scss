@@ -1,5 +1,4 @@
 aside {
-    margin-left: 2em;
     border-left: 1px solid var(--text);
     min-width: 300px;
 
@@ -8,8 +7,9 @@ aside {
         background: var(--text);
         text-align: center;
         font-size: 1em;
-        padding: 0.5em 2em;
+        padding: 0 2em;
         margin-bottom: 0.5em;
+        line-height: 2em;
     }
 
     fieldset {
