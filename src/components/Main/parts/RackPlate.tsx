@@ -11,16 +11,20 @@ interface RackPlateProps {
 function RackPlate({ type, strokeWidth, padding, width, height }: RackPlateProps) {
   const radius = type === '19inch' ? 4 : 2;
 
-  const mountingHoleXOffset = 7.9375;
+  const railWidth = 15.875;
+  const mountingHoleXOffset = railWidth / 2;
   const mountingHoleYOffset = 22.225;
   const mountingHoleSize = 8;
   const mountingHoleLength = 12;
+
+  const cutColor = '#000';
+  const guideColor = '#999';
 
   return (
     <g transform={`translate(${padding}, ${padding})`}>
       <rect
         fill="transparent"
-        stroke="#111"
+        stroke={cutColor}
         strokeWidth={strokeWidth}
         strokeLinejoin="round"
         rx={radius}
@@ -28,6 +32,17 @@ function RackPlate({ type, strokeWidth, padding, width, height }: RackPlateProps
         width={width}
         height={height}
       />
+      {[1, 2].map((i) => (
+        <line
+          key={`railguide_${i}`}
+          x1={i === 1 ? railWidth : width - railWidth}
+          x2={i === 1 ? railWidth : width - railWidth}
+          y1={0}
+          y2={height}
+          stroke={guideColor}
+          strokeDasharray={"2, 3"}
+        />
+      ))}
       {[1, 2, 3, 4].map((i) => {
         const x = i % 2 === 1
           ? mountingHoleXOffset - (mountingHoleSize / 2)
@@ -42,7 +57,7 @@ function RackPlate({ type, strokeWidth, padding, width, height }: RackPlateProps
             x={x}
             y={y}
             fill="transparent"
-            stroke="#111"
+            stroke={cutColor}
             strokeWidth={strokeWidth}
             strokeLinejoin="round"
             width={mountingHoleSize}
