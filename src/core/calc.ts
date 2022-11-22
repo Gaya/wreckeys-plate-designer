@@ -1,5 +1,3 @@
-import { Plate } from '../components/App/AppContextProvider';
-
 function heightRatioByPlate(plate: Plate) {
   switch (plate.type) {
     case 'eurorack':

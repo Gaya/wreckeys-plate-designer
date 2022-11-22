@@ -1,5 +1,3 @@
-import { Plate } from '../../App/AppContextProvider';
-
 interface RackPlateProps {
   type: Plate['type'];
   strokeWidth: number;

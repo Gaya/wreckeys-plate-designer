@@ -1,11 +1,5 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
-export interface Plate {
-  type: '19inch' | 'eurorack' | 'custom';
-  width: number;
-  height: number;
-}
-
 interface AppState {
   plate: Plate;
 }
