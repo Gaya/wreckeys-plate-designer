@@ -17,8 +17,10 @@ interface PartPosition {
 }
 
 interface LineBase {
+  id: string;
   // starting point
   position: PartPosition;
+  // guide options
   isGuide?: boolean;
   dashArray?: string;
 }
@@ -42,5 +44,5 @@ type PartLine = LineLine | LineRect;
 
 interface Part {
   name: string;
-  lines: PartLine[];
+  lines: [LineRect, ...PartLine[]];
 }

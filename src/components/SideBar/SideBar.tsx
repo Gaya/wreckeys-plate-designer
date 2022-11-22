@@ -15,7 +15,7 @@ function SideBar() {
   }, [actions]);
 
   const onUpdateHeight = useCallback((newHeight: typeof height) => {
-    actions.updatePlate({ height: newHeight });
+    actions.updatePlate({ height: parseInt(newHeight.toString(), 10) });
   }, [actions]);
 
   return (

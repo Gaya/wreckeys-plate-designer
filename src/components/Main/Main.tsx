@@ -1,8 +1,9 @@
 import { useAppContext } from '../App/AppContextProvider';
 
 import { plateHeight, plateWidth } from '../../core/calc';
+import { plateToPart } from '../../core/part-maker';
 
-import RackPlate from './parts/RackPlate';
+import PartRenderer from './parts/PartRenderer';
 
 import './Main.scss';
 
@@ -11,8 +12,6 @@ function Main() {
 
   const { plate } = state;
 
-  const pixelmm = 1;
-
   const padding = 20;
   const width = plateWidth(plate);
   const height = plateHeight(plate);
@@ -20,17 +19,15 @@ function Main() {
   const totalWidth = padding * 2 + width;
   const totalHeight = padding * 2 + height;
 
+  const platePlate = plateToPart(plate);
+
   return (
     <main>
       <section className="designer">
         <svg viewBox={`0 0 ${totalWidth} ${totalHeight}`}>
-          <RackPlate
-            type={plate.type}
-            strokeWidth={pixelmm}
-            padding={padding}
-            width={width}
-            height={height}
-          />
+          <g transform={`translate(${padding}, ${padding})`}>
+            <PartRenderer part={platePlate} />
+          </g>
         </svg>
       </section>
     </main>
