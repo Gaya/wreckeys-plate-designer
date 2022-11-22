@@ -37,19 +37,14 @@ export function plateToPart(plate: Plate): Part {
       })),
       // mounting holes
       ...(plate.height === 1 ? [1, 2] : [1, 2, 3, 4]).map((i): LineRect => {
-        const x = i % 2 === 0
-          ? mountingHoleXOffset - (mountingHoleWidth / 2)
-          : (mountingHoleXOffset + (mountingHoleWidth / 2)) * -1;
-
-        const y = i > 2
-          ? (mountingHoleYOffset + (mountingHoleHeight / 2)) * -1
-          : mountingHoleYOffset - (mountingHoleHeight / 2);
+        const x = mountingHoleXOffset - (mountingHoleWidth / 2);
+        const y = mountingHoleYOffset - (mountingHoleHeight / 2);
 
         return {
           id: `mounting_hole_${i}`,
           type: 'rect',
           position: {
-            ax: i % 2 ? 'right' : 'left',
+            ax: i % 2 === 0 ? 'right' : 'left',
             ay: i > 2 ? 'bottom' : 'top',
             x,
             y,
