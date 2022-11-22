@@ -29,14 +29,14 @@ describe('calc', () => {
 
   describe('plateHeight', () => {
     it('can convert from RU typed 19inch', () => {
-      expect(plateHeight({ type: '19inch', width: 19, height: 3 })).toBe(133.35);
-      expect(plateHeight({ type: '19inch', width: 19, height: 5 })).toBe(222.25);
+      expect(plateHeight({ type: '19inch', width: 19, height: 3 })).toBe(128.55);
+      expect(plateHeight({ type: '19inch', width: 19, height: 5 })).toBe(217.45);
       expect(plateHeight({ type: '19inch', width: 19, height: 0 })).toBe(0);
     });
 
     it('can convert from RU typed eurorack', () => {
-      expect(plateHeight({ type: 'eurorack', width: 10, height: 3 })).toBe(133.35);
-      expect(plateHeight({ type: 'eurorack', width: 10, height: 5 })).toBe(222.25);
+      expect(plateHeight({ type: 'eurorack', width: 10, height: 3 })).toBe(128.55);
+      expect(plateHeight({ type: 'eurorack', width: 10, height: 5 })).toBe(217.45);
       expect(plateHeight({ type: 'eurorack', width: 10, height: 0 })).toBe(0);
     });
 

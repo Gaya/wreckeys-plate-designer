@@ -10,6 +10,17 @@ function heightRatioByPlate(plate: Plate) {
   }
 }
 
+function heightCorrection(plate: Plate) {
+  switch (plate.type) {
+    case 'eurorack':
+    case '19inch':
+      // give 4.8mm margin space
+      return 4.8;
+    default:
+      return 0;
+  }
+}
+
 function widthRatioByPlate(plate: Plate) {
   switch (plate.type) {
     case '19inch':
@@ -41,5 +52,7 @@ export function plateHeight(plate: Plate): number {
     throw new Error('Plate cannot have negative height');
   }
 
-  return fixPrecision(plate.height * heightRatioByPlate(plate));
+  return fixPrecision(
+    Math.max(0, (plate.height * heightRatioByPlate(plate)) - heightCorrection(plate)),
+  );
 }
