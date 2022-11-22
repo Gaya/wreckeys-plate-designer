@@ -1,5 +1,7 @@
 import calculatePosition from '../../../core/position';
 
+import strokePropsByLine from '../helpers/strokePropsByLine';
+
 interface LineRectRendererProps {
   relative: LineRect;
   rect: LineRect;
@@ -7,17 +9,14 @@ interface LineRectRendererProps {
 
 function LineRectRenderer({ rect, relative }: LineRectRendererProps) {
   const { radius } = rect;
-  const strokeColor = rect.isGuide ? '#999' : '#000';
-  const strokeWidth = 1;
 
   const { x, y } = calculatePosition(rect, relative);
+  const strokeProps = strokePropsByLine(rect);
 
   return (
     <rect
+      {...strokeProps}
       fill="transparent"
-      stroke={strokeColor}
-      strokeWidth={strokeWidth}
-      strokeLinejoin="round"
       rx={radius}
       ry={radius}
       width={rect.width}
