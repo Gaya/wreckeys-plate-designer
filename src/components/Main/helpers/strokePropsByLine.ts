@@ -9,7 +9,7 @@ interface StrokeProps {
 
 function strokePropsByLine(line: PartLine): StrokeProps {
   return {
-    stroke: line.isGuide ? '#999' : '#000',
+    stroke: line.isGuide ? '#4068ff' : '#000',
     strokeWidth: 1,
     strokeLinejoin: 'round',
     strokeDasharray: line.isGuide ? '2, 3' : undefined,
