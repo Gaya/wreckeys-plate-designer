@@ -1,5 +1,4 @@
 import { SVGAttributes } from 'react';
-import useDimensions from './useDimensions';
 
 interface StrokeProps {
   stroke: SVGAttributes<any>['stroke'];
@@ -8,15 +7,12 @@ interface StrokeProps {
   strokeDasharray: SVGAttributes<any>['strokeDasharray'];
 }
 
-function useStrokePropsByLine(line: PartLine, part: Part): StrokeProps {
-  const dimensions = useDimensions();
-  const pixelinmm = (part.width / dimensions.width) + 0.1;
-
+function useStrokePropsByLine(line: PartLine): StrokeProps {
   return {
     stroke: line.isGuide ? '#4068ff' : '#000',
-    strokeWidth: pixelinmm,
+    strokeWidth: 1,
     strokeLinejoin: 'round',
-    strokeDasharray: line.isGuide ? '2, 3' : undefined,
+    strokeDasharray: line.isGuide ? '4, 6' : undefined,
   };
 }
 
