@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 
+import useEditorContext from './hooks/useEditorContext';
+
 interface RulerProps {
   orientation: 'horizontal' | 'vertical';
   length: number;
@@ -8,7 +10,9 @@ interface RulerProps {
 }
 
 function Ruler({ length, size, padding, orientation }: RulerProps) {
-  if (length === 0) {
+  const { pixelRatio } = useEditorContext();
+
+  if (length === 0 || pixelRatio === 0) {
     return null;
   }
 
@@ -29,17 +33,16 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
         fill="#333"
         x={0}
         y={0}
-        width={orientation === 'horizontal' ? rulerSize * 5 : size}
-        height={orientation === 'vertical' ? rulerSize * 5 : size}
+        width={orientation === 'horizontal' ? (rulerSize * 5) * pixelRatio : size}
+        height={orientation === 'vertical' ? (rulerSize * 5) * pixelRatio : size}
         stroke="#ccc"
         strokeWidth={1}
         vectorEffect="non-scaling-stroke"
       />
       {new Array(rulerSize).fill('').map((_, step) => {
-        const stepOffset = step * 5;
-        const stepLineLength = step % 2 === 0 ? 6 : 4;
-        const textOffset = 10.5;
-        const textPosition = step * 5;
+        const stepOffset = (step * 5) * pixelRatio;
+        const stepLineLength = step % 2 === 0 ? size / 3 : size / 5;
+        const textOffset = size * 2/3;
         const textTransformOffset = orientation === 'vertical' ? 1.7 : 2;
 
         return (
@@ -57,9 +60,9 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
             )}
             {step % 2 === 0 && step > 0 && (
               <text
-                x={orientation === 'vertical' ? textOffset : textPosition}
-                y={orientation === 'vertical' ? textPosition : textOffset}
-                fontSize={5}
+                x={orientation === 'vertical' ? textOffset : stepOffset}
+                y={orientation === 'vertical' ? stepOffset : textOffset}
+                fontSize={10}
                 fontFamily="monospace"
                 fontWeight={400}
                 textAnchor="middle"

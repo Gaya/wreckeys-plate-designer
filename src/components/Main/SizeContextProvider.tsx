@@ -7,7 +7,7 @@ export const SizeContext = createContext<{ width: number; height: number }>({
 
 function SizeContextProvider({ children }: { children?: ReactNode }) {
   const container = useRef<HTMLDivElement>(null);
-  const [dimensions, setDimensionss] = useState({ width: 0, height: 0 });
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     function handleResize() {
@@ -17,7 +17,7 @@ function SizeContextProvider({ children }: { children?: ReactNode }) {
 
       const rect = container.current.getBoundingClientRect();
 
-      setDimensionss({ width: rect.width, height: rect.height });
+      setDimensions({ width: rect.width, height: rect.height });
     }
 
     window.addEventListener('resize', handleResize);
