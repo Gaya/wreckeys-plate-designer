@@ -9,14 +9,12 @@ function PartRenderer({ part }: PartRendererProps) {
   return (
     <>
       {part.lines.map((line) => {
-        const relative = part.lines[0];
-
         if (line.type === 'rect') {
-          return <LineRectRenderer relative={relative} key={line.id} rect={line} />;
+          return <LineRectRenderer part={part} key={line.id} rect={line} />;
         }
 
         if (line.type === 'line') {
-          return <LineRenderer relative={relative} key={line.id} line={line} />;
+          return <LineRenderer part={part} key={line.id} line={line} />;
         }
 
         return (

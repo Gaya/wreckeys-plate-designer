@@ -3,13 +3,13 @@ import calculatePosition from '../../../core/position';
 import strokePropsByLine from '../helpers/strokePropsByLine';
 
 interface LineRendererProps {
-  relative: LineRect;
+  part: Part;
   line: LineLine;
 }
 
-function LineRenderer({ line, relative }: LineRendererProps) {
+function LineRenderer({ line, part }: LineRendererProps) {
   const strokeProps = strokePropsByLine(line);
-  const { x, y } = calculatePosition(line, relative);
+  const { x, y } = calculatePosition(line, part);
 
   return (
     <line

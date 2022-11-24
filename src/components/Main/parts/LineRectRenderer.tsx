@@ -3,14 +3,14 @@ import calculatePosition from '../../../core/position';
 import strokePropsByLine from '../helpers/strokePropsByLine';
 
 interface LineRectRendererProps {
-  relative: LineRect;
   rect: LineRect;
+  part: Part;
 }
 
-function LineRectRenderer({ rect, relative }: LineRectRendererProps) {
+function LineRectRenderer({ rect, part }: LineRectRendererProps) {
   const { radius } = rect;
 
-  const { x, y } = calculatePosition(rect, relative);
+  const { x, y } = calculatePosition(rect, part);
   const strokeProps = strokePropsByLine(rect);
 
   return (

@@ -102,6 +102,8 @@ export function plateToPart(plate: Plate): Part {
 
   return {
     name: 'Back plate',
+    width,
+    height,
     lines: [
       {
         id: 'base',

@@ -44,5 +44,7 @@ type PartLine = LineLine | LineRect;
 
 interface Part {
   name: string;
-  lines: [LineRect, ...PartLine[]];
+  width: number;
+  height: number;
+  lines: PartLine[];
 }
