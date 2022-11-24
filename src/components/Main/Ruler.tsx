@@ -16,7 +16,7 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
     return null;
   }
 
-  const rulerSize = Math.ceil((padding + padding + length) / 5);
+  const rulerSize = Math.ceil((padding + length + padding) / 5);
 
   return (
     <g transform={`translate(${orientation === 'horizontal' ? size : 0}, ${orientation === 'vertical' ? size : 0})`}>
@@ -35,9 +35,6 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
         y={0}
         width={orientation === 'horizontal' ? (rulerSize * 5) * pixelRatio : size}
         height={orientation === 'vertical' ? (rulerSize * 5) * pixelRatio : size}
-        stroke="#ccc"
-        strokeWidth={1}
-        vectorEffect="non-scaling-stroke"
       />
       {new Array(rulerSize).fill('').map((_, step) => {
         const stepOffset = (step * 5) * pixelRatio;

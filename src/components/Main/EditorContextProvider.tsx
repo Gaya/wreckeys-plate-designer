@@ -1,21 +1,80 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+
+import { plateWidth } from '../../core/calc';
+
+import { useAppContext } from '../App/AppContextProvider';
 
 interface EditorContextShape {
+  width: number;
+  height: number;
+  outerWidth: number;
+  outerHeight: number;
   pixelRatio: number;
-  setPixelRatio: (ratio: number) => void;
 }
 
 export const EditorContext = createContext<EditorContextShape>({
+  width: 0,
+  height: 0,
+  outerWidth: 0,
+  outerHeight: 0,
   pixelRatio: 1,
-  setPixelRatio: () => undefined,
 });
 
 function EditorContextProvider({ children }: { children?: ReactNode }) {
-  const [pixelRatio, setPixelRatio] = useState(1);
+  const { state } = useAppContext();
+  const { plate } = state;
+  const container = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
+    outerWidth: 0,
+    outerHeight: 0,
+  });
+
+  const padding = 10;
+  const width = plateWidth(plate);
+  const totalWidth = padding * 2 + width;
+
+  useEffect(() => {
+    if (!container.current) {
+      return;
+    }
+
+    const main = container.current.querySelector('.designer-main');
+
+    if (!main) {
+      return;
+    }
+
+    const resizeObserver = new ResizeObserver(([mainContainer]) => {
+      if (!container.current) {
+        return;
+      }
+
+      const mainRect = mainContainer.target.getBoundingClientRect();
+      const containerRect = container.current.getBoundingClientRect();
+
+      setDimensions({
+        width: mainRect.width,
+        height: mainRect.height,
+        outerWidth: containerRect.width,
+        outerHeight: containerRect.height,
+      });
+    });
+
+    resizeObserver.observe(main);
+  }, []);
+
+  const value = useMemo(() => ({
+    ...dimensions,
+    pixelRatio: dimensions.width / totalWidth,
+  }), [dimensions, totalWidth]);
 
   return (
-    <EditorContext.Provider value={{ pixelRatio, setPixelRatio }}>
-      {children}
+    <EditorContext.Provider value={value}>
+      <div ref={container} className="SizeContainer">
+        {children}
+      </div>
     </EditorContext.Provider>
   );
 }
