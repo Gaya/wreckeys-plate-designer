@@ -1,6 +1,6 @@
 import calculatePosition from '../../../core/position';
 
-import strokePropsByLine from '../helpers/strokePropsByLine';
+import useStrokePropsByLine from '../hooks/useStrokePropsByLine';
 
 interface LineRectRendererProps {
   rect: LineRect;
@@ -11,7 +11,7 @@ function LineRectRenderer({ rect, part }: LineRectRendererProps) {
   const { radius } = rect;
 
   const { x, y } = calculatePosition(rect, part);
-  const strokeProps = strokePropsByLine(rect);
+  const strokeProps = useStrokePropsByLine(rect, part);
 
   return (
     <rect

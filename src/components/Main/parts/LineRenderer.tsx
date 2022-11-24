@@ -1,6 +1,6 @@
 import calculatePosition from '../../../core/position';
 
-import strokePropsByLine from '../helpers/strokePropsByLine';
+import useStrokePropsByLine from '../hooks/useStrokePropsByLine';
 
 interface LineRendererProps {
   part: Part;
@@ -8,7 +8,7 @@ interface LineRendererProps {
 }
 
 function LineRenderer({ line, part }: LineRendererProps) {
-  const strokeProps = strokePropsByLine(line);
+  const strokeProps = useStrokePropsByLine(line, part);
   const { x, y } = calculatePosition(line, part);
 
   return (

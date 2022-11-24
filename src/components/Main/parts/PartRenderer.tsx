@@ -17,9 +17,7 @@ function PartRenderer({ part }: PartRendererProps) {
           return <LineRenderer part={part} key={line.id} line={line} />;
         }
 
-        return (
-          <></>
-        );
+        return null;
       })}
     </>
   );
