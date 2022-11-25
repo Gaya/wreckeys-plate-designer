@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from 'react';
 
 import useEditorContext from './hooks/useEditorContext';
 
@@ -12,6 +12,22 @@ interface RulerProps {
 function Ruler({ length, size, padding, orientation }: RulerProps) {
   const { pixelRatio } = useEditorContext();
 
+  const [
+    mousePosition,
+    setMousePosition
+  ] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const updateMousePosition = (ev: MouseEvent) => {
+      setMousePosition({ x: ev.clientX, y: ev.clientY });
+    };
+
+    window.addEventListener('mousemove', updateMousePosition);
+
+    return () => window.removeEventListener('mousemove', updateMousePosition);
+  }, []);
+
+
   if (length === 0 || pixelRatio === 0) {
     return null;
   }
@@ -19,6 +35,10 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
   const rulerSize = Math.ceil(padding + length + padding);
 
   const isDetailedRuler = pixelRatio >= 5;
+  const cursorPosition = Math.max(
+    (orientation === 'vertical' ? mousePosition.y : mousePosition.x) - size,
+    0,
+  );
 
   return (
     <g transform={`translate(${orientation === 'horizontal' ? size : 0}, ${orientation === 'vertical' ? size : 0})`}>
@@ -80,6 +100,16 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
           </Fragment>
         );
       })}
+      <line
+        stroke="#f00"
+        strokeWidth={1}
+        strokeOpacity={0.75}
+        vectorEffect="non-scaling-stroke"
+        x1={orientation === 'vertical' ? 0 : cursorPosition}
+        x2={orientation === 'vertical' ? size : cursorPosition}
+        y1={orientation === 'vertical' ? cursorPosition : 0}
+        y2={orientation === 'vertical' ? cursorPosition : size}
+      />
     </g>
   );
 }
