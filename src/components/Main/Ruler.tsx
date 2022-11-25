@@ -16,7 +16,9 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
     return null;
   }
 
-  const rulerSize = Math.ceil((padding + length + padding) / 5);
+  const rulerSize = Math.ceil(padding + length + padding);
+
+  const isDetailedRuler = pixelRatio >= 5;
 
   return (
     <g transform={`translate(${orientation === 'horizontal' ? size : 0}, ${orientation === 'vertical' ? size : 0})`}>
@@ -37,8 +39,14 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
         height={orientation === 'vertical' ? (rulerSize * 5) * pixelRatio : size}
       />
       {new Array(rulerSize).fill('').map((_, step) => {
-        const stepOffset = (step * 5) * pixelRatio;
-        const stepLineLength = step % 2 === 0 ? size / 3 : size / 5;
+        if (!isDetailedRuler && step % 5 !== 0) {
+          return null;
+        }
+
+        const stepDivision = !isDetailedRuler ? 10 : 5;
+
+        const stepOffset = step * pixelRatio;
+        const stepLineLength = step % stepDivision === 0 ? size / 3 : size / 5;
         const textOffset = size * 2/3;
         const textTransformOffset = orientation === 'vertical' ? 1.7 : 2;
 
@@ -55,7 +63,7 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
                 y2={orientation === 'vertical' ? stepOffset : stepLineLength}
               />
             )}
-            {step % 2 === 0 && step > 0 && (
+            {step % 10 === 0 && step > 0 && (
               <text
                 x={orientation === 'vertical' ? textOffset : stepOffset}
                 y={orientation === 'vertical' ? stepOffset : textOffset}
@@ -66,7 +74,7 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
                 fill="#ccc"
                 transform={`translate(0, ${textTransformOffset})`}
               >
-                {(step / 2) - (padding / 10)}
+                {(step - padding) / 10}
               </text>
             )}
           </Fragment>

@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 
-import { plateWidth } from '../../core/calc';
+import { plateHeight, plateWidth } from '../../core/calc';
 
 import { useAppContext } from '../App/AppContextProvider';
 
@@ -33,7 +33,9 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
 
   const padding = 10;
   const width = plateWidth(plate);
+  const height = plateHeight(plate);
   const totalWidth = padding * 2 + width;
+  const totalHeight = padding * 2 + height;
 
   useEffect(() => {
     if (!container.current) {
@@ -67,8 +69,10 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
 
   const value = useMemo(() => ({
     ...dimensions,
-    pixelRatio: dimensions.width / totalWidth,
-  }), [dimensions, totalWidth]);
+    pixelRatio: totalWidth > totalHeight
+      ? dimensions.width / totalWidth
+      : dimensions.height / totalHeight,
+  }), [dimensions, totalHeight, totalWidth]);
 
   return (
     <EditorContext.Provider value={value}>
