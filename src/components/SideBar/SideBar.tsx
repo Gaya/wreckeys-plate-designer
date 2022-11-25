@@ -1,5 +1,8 @@
 import { useCallback } from 'react';
 
+import toDXF from '../../core/toDXF';
+import { plateToPart } from '../../core/part-maker';
+
 import { useAppContext } from '../App/AppContextProvider';
 import Select from '../Select/Select';
 
@@ -17,6 +20,13 @@ function SideBar() {
   const onUpdateHeight = useCallback((newHeight: typeof height) => {
     actions.updatePlate({ height: parseInt(newHeight.toString(), 10) });
   }, [actions]);
+
+  const convertToDXF = useCallback(() => {
+    const platePart = plateToPart(state.plate);
+    const dxfString = toDXF([platePart]);
+
+    console.log(dxfString);
+  }, [state.plate]);
 
   return (
     <aside>
@@ -71,6 +81,12 @@ function SideBar() {
           />
         </fieldset>
       )}
+      <h2 style={{ marginTop: '1em' }}>Download</h2>
+      <fieldset>
+        <button type="button" onClick={convertToDXF}>
+          Create and download DXF
+        </button>
+      </fieldset>
     </aside>
   );
 }
