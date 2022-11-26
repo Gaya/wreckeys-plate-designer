@@ -50,6 +50,8 @@
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "dxf-writer": "^1.18.4",
+    "file-saver": "^2.0.5",
     "hexo": "^6.3.0",
     "hexo-asset-link": "^2.2.1",
     "hexo-auto-canonical": "^0.1.1",
@@ -68,5 +70,8 @@
     "sass": "^1.56.1",
     "typescript": "^4.9.3",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.5"
   }
 }

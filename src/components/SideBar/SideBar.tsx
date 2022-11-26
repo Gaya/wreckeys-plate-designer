@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { saveAs } from 'file-saver';
 
 import toDXF from '../../core/toDXF';
 import { plateToPart } from '../../core/part-maker';
@@ -25,7 +26,8 @@ function SideBar() {
     const platePart = plateToPart(state.plate);
     const dxfString = toDXF([platePart]);
 
-    console.log(dxfString);
+    const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, 'drawing.dxf');
   }, [state.plate]);
 
   return (
