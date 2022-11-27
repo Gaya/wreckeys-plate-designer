@@ -19,7 +19,7 @@ function DXF() {
 
   return (
     <>
-      <h2 style={{ marginTop: '1em' }}>Download</h2>
+      <h2>Download</h2>
       <fieldset>
         <button type="button" onClick={convertToDXF}>
           Create DXF
