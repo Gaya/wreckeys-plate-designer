@@ -1,13 +1,10 @@
 import { useCallback } from 'react';
-import { saveAs } from 'file-saver';
-
-import toDXF from '../../core/toDXF';
-import { plateToPart } from '../../core/part-maker';
 
 import { useAppContext } from '../App/AppContextProvider';
 import Select from '../Select/Select';
 
 import './SideBar.scss';
+import DXF from './DXF';
 
 function SideBar() {
   const { state, actions } = useAppContext();
@@ -21,14 +18,6 @@ function SideBar() {
   const onUpdateHeight = useCallback((newHeight: typeof height) => {
     actions.updatePlate({ height: parseInt(newHeight.toString(), 10) });
   }, [actions]);
-
-  const convertToDXF = useCallback(() => {
-    const platePart = plateToPart(state.plate);
-    const dxfString = toDXF([platePart]);
-
-    const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, 'drawing.dxf');
-  }, [state.plate]);
 
   return (
     <aside>
@@ -83,12 +72,7 @@ function SideBar() {
           />
         </fieldset>
       )}
-      <h2 style={{ marginTop: '1em' }}>Download</h2>
-      <fieldset>
-        <button type="button" onClick={convertToDXF}>
-          Create and download DXF
-        </button>
-      </fieldset>
+      <DXF />
     </aside>
   );
 }
