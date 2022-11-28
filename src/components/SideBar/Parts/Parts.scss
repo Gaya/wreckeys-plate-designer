@@ -63,4 +63,27 @@
       font-size: 1.2em;
     }
   }
+
+  .PartRow_Position {
+    margin: 0.5em 0;
+    display: flex;
+    justify-content: space-between;
+
+    section {
+      width: 49%;
+      display: flex;
+      align-items: baseline;
+
+      label {
+        margin-right: 0.3em;
+        font-size: 0.8em;
+      }
+
+      input {
+        display: block;
+        flex-shrink: 1;
+        width: 100%;
+      }
+    }
+  }
 }
