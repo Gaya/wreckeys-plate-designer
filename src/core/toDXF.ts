@@ -3,6 +3,8 @@ import DXF from 'dxf-writer';
 import calculatePosition from './position';
 
 function toDXF(parts: Part[]): string {
+  const platePart = parts[0];
+
   const d = new DXF();
 
   d.setUnits('Millimeters');
@@ -12,8 +14,20 @@ function toDXF(parts: Part[]): string {
     d.addLayer(part.name, DXF.ACI.GREEN, 'CONTINUOUS');
     d.setActiveLayer(part.name);
 
-    // needed for the Y flipping
-    const invertY = (y: number): number => part.height - y;
+    // needed for the Y flipping on the plate part
+    const positionY = (y: number): number => platePart.height - y;
+
+    const drawLine = (x1: number, y1: number, x2: number, y2: number) => {
+      return d.drawLine(x1, positionY(y1), x2, positionY(y2));
+    };
+
+    const drawArc = (x: number, y: number, r: number, angle1: number, angle2: number) => {
+      return d.drawArc(x, positionY(y), r, angle1, angle2);
+    };
+
+    const drawCircle = (x: number, y: number, r: number) => {
+      return d.drawCircle(x, positionY(y), r);
+    };
 
     // go through lines
     for (let line of part.lines) {
@@ -30,29 +44,29 @@ function toDXF(parts: Part[]): string {
 
         if (r > 0) {
           // top left
-          d.drawArc(x + r, invertY(y + r), r, 90, 180);
+          drawArc(x + r, y + r, r, 90, 180);
           // bottom left
-          d.drawArc(x + r, invertY(y + h - r), r, 180, 270);
+          drawArc(x + r, y + h - r, r, 180, 270);
           // top right
-          d.drawArc(x - r + w, invertY(y + r), r, 0, 90);
+          drawArc(x - r + w, y + r, r, 0, 90);
           // bottom right
-          d.drawArc(x - r + w, invertY(y + h - r), r, 270, 0);
+          drawArc(x - r + w, y + h - r, r, 270, 0);
         }
 
         // bottom
-        d.drawLine(x + r, invertY(y), x + w - r, invertY(y))
-          // right
-          .drawLine(x + w, invertY(y + r), x + w, invertY(y + h - r))
-          // top
-          .drawLine(x + w - r, invertY(y + h), x + r, invertY(y + h))
-          // left
-          .drawLine(x, invertY(y + h - r), x, invertY(y + r));
+        drawLine(x + r, y, x + w - r, y);
+        // right
+        drawLine(x + w, y + r, x + w, y + h - r);
+        // top
+        drawLine(x + w - r, y + h, x + r, y + h);
+        // left
+        drawLine(x, y + h - r, x, y + r);
       }
 
       if (line.type === 'circle') {
         const { x, y } = calculatePosition(line, part);
 
-        d.drawCircle(x, y, line.radius);
+        drawCircle(x, y, line.radius);
       }
     }
   }
