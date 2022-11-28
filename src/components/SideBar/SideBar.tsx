@@ -1,5 +1,6 @@
 import DXF from './DXF';
 import Plate from './Plate';
+import Parts from './Parts/Parts';
 
 import './SideBar.scss';
 
@@ -10,7 +11,7 @@ function SideBar() {
         <Plate />
       </section>
       <section className="sidebar-option sidebar-option-grow">
-        <h2>Parts</h2>
+        <Parts />
       </section>
       <section className="sidebar-option">
         <DXF />

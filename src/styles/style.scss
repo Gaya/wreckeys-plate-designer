@@ -21,8 +21,28 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+html, body, input, textarea, button {
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
+}
+
+button {
+  padding: 10px 21px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  outline: none;
+  background-color: transparent;
+  color: var(--main);
+  border-color: var(--main);
+  cursor: pointer;
+
+  &:hover, &:active, &:focus {
+    background-color: var(--main);
+    color: var(--bg);
+    border: 2px solid var(--main);
+  }
 }
 
 #root, .App {
