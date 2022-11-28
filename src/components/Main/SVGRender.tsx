@@ -33,7 +33,7 @@ function SVGRender() {
       <g transform={`translate(${padding}, ${padding})`}>
         <PartRenderer part={platePart} />
         {parts.map((part) => (
-          <PartRenderer key={part.id} part={part} />
+          <PartRenderer key={part.id} part={part} editable />
         ))}
       </g>
     </svg>
