@@ -1,4 +1,4 @@
-import { plateToPart } from '../../core/part-maker';
+import { plateToPart } from '../../parts/plate';
 import { plateHeight, plateWidth } from '../../core/calc';
 
 import { useAppContext } from '../App/AppContextProvider';

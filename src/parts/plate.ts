@@ -1,4 +1,4 @@
-import { plateHeight, plateWidth } from './calc';
+import { plateHeight, plateWidth } from '../core/calc';
 
 function guidelines(plate: Plate): PartLine[] {
   const width = plateWidth(plate);

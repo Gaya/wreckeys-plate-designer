@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { saveAs } from 'file-saver';
 
-import { plateToPart } from '../../core/part-maker';
+import { plateToPart } from '../../parts/plate';
 import toDXF from '../../core/toDXF';
 
 import { useAppContext } from '../App/AppContextProvider';
