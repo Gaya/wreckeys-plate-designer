@@ -43,7 +43,7 @@ function mountingHoles(plate: Plate): PartLine[] {
   if (plate.type === '19inch') {
     const railWidth = 15.875;
     const mountingHoleXOffset = railWidth / 2;
-    const mountingHoleYOffset = 35.71;
+    const mountingHoleYOffset = plate.height >= 3 ? 35.71 : 19.83;
     const mountingHoleWidth = 10;
     const mountingHoleHeight = 6;
 
