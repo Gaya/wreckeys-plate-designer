@@ -43,9 +43,9 @@ function mountingHoles(plate: Plate): PartLine[] {
   if (plate.type === '19inch') {
     const railWidth = 15.875;
     const mountingHoleXOffset = railWidth / 2;
-    const mountingHoleYOffset = 19.825;
-    const mountingHoleWidth = 4;
-    const mountingHoleHeight = 8;
+    const mountingHoleYOffset = 35.71;
+    const mountingHoleWidth = 10;
+    const mountingHoleHeight = 6;
 
     return (plate.height === 1 ? [1, 2] : [1, 2, 3, 4]).map((i): LineRect => {
       const x = mountingHoleXOffset - (mountingHoleWidth / 2);
@@ -62,7 +62,7 @@ function mountingHoles(plate: Plate): PartLine[] {
         },
         width: mountingHoleWidth,
         height: mountingHoleHeight,
-        radius: mountingHoleWidth / 2,
+        radius: mountingHoleHeight / 2,
       };
     });
   }
@@ -98,7 +98,7 @@ function mountingHoles(plate: Plate): PartLine[] {
 export function plateToPart(plate: Plate): Part {
   const width = plateWidth(plate);
   const height = plateHeight(plate);
-  const radius = plate.type === '19inch' ? 4 : 1;
+  const radius = plate.type === '19inch' ? 3 : 1;
 
   return {
     name: 'Back plate',
