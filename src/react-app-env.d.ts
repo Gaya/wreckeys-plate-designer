@@ -48,8 +48,12 @@ interface LineCircle extends LineBase {
 type PartLine = LineLine | LineRect | LineCircle;
 
 interface Part {
+  id: string;
   name: string;
   width: number;
   height: number;
+  rotation?: number;
+  offsetX?: number;
+  offsetY?: number;
   lines: PartLine[];
 }

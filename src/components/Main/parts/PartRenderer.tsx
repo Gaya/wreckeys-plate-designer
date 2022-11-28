@@ -8,7 +8,7 @@ interface PartRendererProps {
 
 function PartRenderer({ part }: PartRendererProps) {
   return (
-    <>
+    <g id={part.id}>
       {part.lines.map((line) => {
         if (line.type === 'rect') {
           return <LineRectRenderer part={part} key={line.id} rect={line} />;
@@ -24,7 +24,7 @@ function PartRenderer({ part }: PartRendererProps) {
 
         return null;
       })}
-    </>
+    </g>
   );
 }
 

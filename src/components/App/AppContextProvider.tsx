@@ -1,7 +1,10 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
+import { knobPart } from '../../parts/knob';
+
 interface AppState {
   plate: Plate;
+  parts: Part[];
 }
 
 interface AppActions {
@@ -19,6 +22,9 @@ const defaultState: AppState = {
     width: 19,
     height: 3,
   },
+  parts: [
+    knobPart(),
+  ],
 };
 
 const AppContext = createContext<AppContextShape>({
@@ -34,12 +40,14 @@ export function useAppContext() {
 
 function AppContextProvider({ children }: { children?: ReactNode }) {
   const [plate, setPlate] = useState<AppState['plate']>(defaultState.plate);
+  const [parts, setParts] = useState<AppState['parts']>(defaultState.parts);
 
   const state = useMemo((): AppState => {
     return {
       plate,
+      parts,
     };
-  }, [plate]);
+  }, [parts, plate]);
 
   const actions = useMemo((): AppActions => {
     return {

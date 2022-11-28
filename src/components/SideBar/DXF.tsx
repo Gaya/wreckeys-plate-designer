@@ -11,7 +11,7 @@ function DXF() {
 
   const convertToDXF = useCallback(() => {
     const platePart = plateToPart(state.plate);
-    const dxfString = toDXF([platePart]);
+    const dxfString = toDXF([platePart, ...state.parts]);
 
     const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
     saveAs(blob, 'drawing.dxf');

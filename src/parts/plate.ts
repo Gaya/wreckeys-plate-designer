@@ -99,6 +99,7 @@ export function plateToPart(plate: Plate): Part {
   const radius = plate.type === '19inch' ? 3 : 1;
 
   return {
+    id: 'plate',
     name: 'Back plate',
     width,
     height,

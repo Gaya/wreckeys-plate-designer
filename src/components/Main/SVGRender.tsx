@@ -10,7 +10,7 @@ function SVGRender() {
   const { state } = useAppContext();
   const editor = useEditorContext();
 
-  const { plate } = state;
+  const { plate, parts } = state;
 
   const padding = 10;
   const width = plateWidth(plate);
@@ -32,6 +32,9 @@ function SVGRender() {
     <svg viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}>
       <g transform={`translate(${padding}, ${padding})`}>
         <PartRenderer part={platePart} />
+        {parts.map((part) => (
+          <PartRenderer key={part.id} part={part} />
+        ))}
       </g>
     </svg>
   );

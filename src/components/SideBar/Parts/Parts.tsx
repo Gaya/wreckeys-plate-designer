@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 
+import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
 
 import knob from './knob.svg';
@@ -10,6 +11,10 @@ import hole from './hole.svg';
 import './Parts.scss';
 
 function Parts() {
+  const { state } = useAppContext();
+
+  const { parts } = state;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeModal = useCallback(() => setIsModalOpen(false), []);
@@ -54,6 +59,12 @@ function Parts() {
         <button type="button" onClick={openModal}>
           + Add Part
         </button>
+
+        {parts.map((part) => (
+          <div key={part.id}>
+            {part.name}
+          </div>
+        ))}
       </fieldset>
     </>
   );

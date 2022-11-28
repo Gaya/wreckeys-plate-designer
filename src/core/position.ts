@@ -23,8 +23,8 @@ function yOffsetRelative(line: PartLine, part: Part): number {
 }
 
 function calculatePosition(line: PartLine, part: Part): { x: number; y: number; } {
-  const xOffset = xOffsetRelative(line, part);
-  const yOffset = yOffsetRelative(line, part);
+  const xOffset = xOffsetRelative(line, part) + (part.offsetX || 0);
+  const yOffset = yOffsetRelative(line, part) + (part.offsetY || 0);
   const xDirection = line.position.ax === 'right' ? -1 : 1;
   const yDirection = line.position.ay === 'bottom' ? -1 : 1;
 
