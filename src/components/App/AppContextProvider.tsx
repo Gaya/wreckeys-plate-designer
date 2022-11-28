@@ -9,6 +9,7 @@ interface AppState {
 
 interface AppActions {
   updatePlate: (newState: Partial<AppState['plate']>) => void;
+  updatePart: (id: Part['id'], part: Partial<Part>) => void;
 }
 
 interface AppContextShape {
@@ -31,6 +32,7 @@ const AppContext = createContext<AppContextShape>({
   state: defaultState,
   actions: {
     updatePlate: () => { throw new Error('Not implemented') },
+    updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
   },
 });
 
@@ -52,6 +54,20 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
   const actions = useMemo((): AppActions => {
     return {
       updatePlate: (newState) => setPlate((prevState) => ({ ...prevState, ...newState })),
+      updatePart: (id, part) => {
+        setParts((currentParts) => {
+          return currentParts.map((p) => {
+            if (p.id !== id) {
+              return p;
+            }
+
+            return {
+              ...p,
+              ...part,
+            };
+          });
+        });
+      },
     };
   }, []);
 

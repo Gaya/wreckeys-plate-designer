@@ -9,6 +9,7 @@ import segment from './segment.svg';
 import hole from './hole.svg';
 
 import './Parts.scss';
+import PartRow from './PartRow';
 
 function Parts() {
   const { state } = useAppContext();
@@ -59,13 +60,10 @@ function Parts() {
         <button type="button" onClick={openModal}>
           + Add Part
         </button>
-
-        {parts.map((part) => (
-          <div key={part.id}>
-            {part.name}
-          </div>
-        ))}
       </fieldset>
+      {parts.map((part) => (
+        <PartRow key={part.id} part={part} />
+      ))}
     </>
   );
 }

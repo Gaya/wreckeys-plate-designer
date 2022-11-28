@@ -1,5 +1,7 @@
 import { MouseEventHandler, useCallback, useEffect, useRef, useState } from 'react';
 
+import { useAppContext } from '../../App/AppContextProvider';
+
 import useEditorContext from '../hooks/useEditorContext';
 
 import LineRectRenderer from './LineRectRenderer';
@@ -12,9 +14,10 @@ interface PartRendererProps {
 }
 
 function PartRenderer({ part, editable }: PartRendererProps) {
+  const { actions } = useAppContext();
   const { pixelRatio } = useEditorContext();
 
-  const startPosition = useRef<{ x: number; y: number } | null>(null);
+  const mousePosition = useRef<{ x: number; y: number; dx: number; dy: number } | null>(null);
   const [movingOffset, setMovingOffset] = useState({ dx: 0, dy: 0 });
 
   const onMouseDown = useCallback<MouseEventHandler<SVGElement>>((e) => {
@@ -22,22 +25,33 @@ function PartRenderer({ part, editable }: PartRendererProps) {
       return;
     }
 
-    startPosition.current = { x: e.pageX, y: e.pageY };
+    mousePosition.current = { x: e.pageX, y: e.pageY, dx: 0, dy: 0 };
   }, [editable]);
 
   useEffect(() => {
     function handleMouseMove(e: MouseEvent) {
-      if (startPosition.current) {
-        const dx = e.pageX - startPosition.current?.x;
-        const dy = e.pageY - startPosition.current?.y;
+      if (mousePosition.current) {
+        const dx = e.pageX - mousePosition.current?.x;
+        const dy = e.pageY - mousePosition.current?.y;
 
+        mousePosition.current = {
+          ...mousePosition.current,
+          dx,
+          dy,
+        };
         setMovingOffset({ dx, dy });
       }
     }
 
     function handleMouseUp() {
-      if (startPosition.current) {
-        startPosition.current = null;
+      if (mousePosition.current) {
+        const offsetX = (part.offsetX || 0) + (mousePosition.current.dx / pixelRatio);
+        const offsetY = (part.offsetY || 0) + (mousePosition.current.dy / pixelRatio);
+
+        actions.updatePart(part.id, { offsetY, offsetX });
+
+        // reset
+        mousePosition.current = null;
         setMovingOffset({ dx: 0, dy: 0 });
       }
     }
@@ -49,7 +63,7 @@ function PartRenderer({ part, editable }: PartRendererProps) {
       document.body.removeEventListener('mousemove', handleMouseMove);
       document.body.removeEventListener('mouseup', handleMouseUp);
     };
-  }, []);
+  }, [actions, part.id, part.offsetX, part.offsetY, pixelRatio]);
 
   return (
     <g
