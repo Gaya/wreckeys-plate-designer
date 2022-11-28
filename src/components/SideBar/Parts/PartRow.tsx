@@ -21,6 +21,8 @@ function PartRow({ part }: PartRowProps) {
     actions.updatePart(part.id, { offsetY: parseFloat(e.target.value) });
   }, [actions, part.id]);
 
+  // todo: aff remove of part
+
   return (
     <div className="PartRow">
       <div className="PartRow_Name">

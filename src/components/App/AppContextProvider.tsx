@@ -10,6 +10,7 @@ interface AppState {
 interface AppActions {
   updatePlate: (newState: Partial<AppState['plate']>) => void;
   updatePart: (id: Part['id'], part: Partial<Part>) => void;
+  removePart: (id: Part['id']) => void;
 }
 
 interface AppContextShape {
@@ -33,6 +34,7 @@ const AppContext = createContext<AppContextShape>({
   actions: {
     updatePlate: () => { throw new Error('Not implemented') },
     updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
+    removePart: (id: Part['id']) => { throw new Error('Not implemented') },
   },
 });
 
@@ -68,6 +70,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
           });
         });
       },
+      removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id === id)),
     };
   }, []);
 
