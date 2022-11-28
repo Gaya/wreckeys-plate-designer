@@ -48,6 +48,12 @@ function toDXF(parts: Part[]): string {
           // left
           .drawLine(x, invertY(y + h - r), x, invertY(y + r));
       }
+
+      if (line.type === 'circle') {
+        const { x, y } = calculatePosition(line, part);
+
+        d.drawCircle(x, y, line.radius);
+      }
     }
   }
 

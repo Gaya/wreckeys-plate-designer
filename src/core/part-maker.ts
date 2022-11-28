@@ -70,24 +70,22 @@ function mountingHoles(plate: Plate): PartLine[] {
   if (plate.type === 'eurorack') {
     const mountingHoleXOffset = 7.5;
     const mountingHoleYOffset = 3;
-    const mountingHoleWidth = 3.2;
+    const mountingHoleDiameter = 3.2;
 
-    return (plate.height === 1 ? [1, 2] : [1, 2, 3, 4]).map((i): LineRect => {
-      const x = mountingHoleXOffset - (mountingHoleWidth / 2);
-      const y = mountingHoleYOffset - (mountingHoleWidth / 2);
+    return (plate.height === 1 ? [1, 2] : [1, 2, 3, 4]).map((i): LineCircle => {
+      const x = mountingHoleXOffset;
+      const y = mountingHoleYOffset;
 
       return {
         id: `mounting_hole_${i}`,
-        type: 'rect',
+        type: 'circle',
         position: {
           ax: i % 2 === 0 ? 'right' : 'left',
           ay: i > 2 ? 'bottom' : 'top',
           x,
           y,
         },
-        width: mountingHoleWidth,
-        height: mountingHoleWidth,
-        radius: mountingHoleWidth / 2,
+        radius: mountingHoleDiameter / 2,
       };
     });
   }

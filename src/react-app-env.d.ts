@@ -40,7 +40,12 @@ interface LineLine extends LineBase {
   y: number;
 }
 
-type PartLine = LineLine | LineRect;
+interface LineCircle extends LineBase {
+  type: 'circle';
+  radius: number;
+}
+
+type PartLine = LineLine | LineRect | LineCircle;
 
 interface Part {
   name: string;
