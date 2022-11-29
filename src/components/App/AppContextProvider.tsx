@@ -16,7 +16,7 @@ interface AppActions {
   addPart: (part: Part) => void;
   removePart: (id: Part['id']) => void;
   updatePart: (id: Part['id'], part: Partial<Part>) => void;
-  updatePartOptions: (id: Part['id'], newOptions: PartWithOptions) => void;
+  updatePartOptions: (id: Part['id'], newOptions: Partial<PartWithOptions['options']>) => void;
 }
 
 interface AppContextShape {
@@ -44,7 +44,7 @@ const AppContext = createContext<AppContextShape>({
     addPart: (part: Part) => { throw new Error('Not implemented') },
     removePart: (id: Part['id']) => { throw new Error('Not implemented') },
     updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
-    updatePartOptions: (id: Part['id'], part: PartWithOptions) => { throw new Error('Not implemented') },
+    updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => { throw new Error('Not implemented') },
   },
 });
 
@@ -87,7 +87,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
           });
         });
       },
-      updatePartOptions: (id: Part['id'], newPart: PartWithOptions) => {
+      updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => {
         setParts((currentParts: Part[]) => {
           return currentParts.map(function mergePart<T extends Part>(p: T): T {
             if (p.id === id && isPartWithOptions(p)) {
@@ -95,9 +95,8 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
                 ...p,
                 options: {
                   ...p.options,
-                  ...newPart.options,
+                  ...options,
                 },
-                lines: newPart.lines,
               };
             }
 

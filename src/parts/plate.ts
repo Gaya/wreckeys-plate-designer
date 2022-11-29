@@ -102,19 +102,25 @@ export function plateToPart(plate: Plate): PlatePart {
     id: 'plate',
     type: 'plate',
     name: 'Back plate',
-    width,
-    height,
-    lines: [
-      {
-        id: 'base',
-        type: 'rect',
-        position: { x: 0, y: 0 },
-        width,
-        height,
-        radius,
-      },
-      ...guidelines(plate),
-      ...mountingHoles(plate),
-    ],
+    width: function () {
+      return width;
+    },
+    height: function () {
+      return height;
+    },
+    lines: function() {
+      return [
+        {
+          id: 'base',
+          type: 'rect',
+          position: { x: 0, y: 0 },
+          width,
+          height,
+          radius,
+        },
+        ...guidelines(plate),
+        ...mountingHoles(plate),
+      ];
+    },
   };
 }

@@ -72,7 +72,7 @@ function PartRenderer({ part, editable }: PartRendererProps) {
       transform={`translate(${movingOffset.dx / pixelRatio}, ${movingOffset.dy / pixelRatio})`}
       style={{ cursor: editable ? 'move' : 'default' }}
     >
-      {part.lines.map((line) => {
+      {part.lines().map((line) => {
         if (line.isGuide && !state.options.showGuides) {
           return null;
         }

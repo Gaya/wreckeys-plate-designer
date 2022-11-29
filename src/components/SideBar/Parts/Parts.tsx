@@ -28,8 +28,8 @@ function Parts() {
   const platePart = plateToPart(plate);
 
   const onAddPart = useCallback((type: PartType) => {
-    const cx = platePart.width / 2;
-    const cy = platePart.height / 2;
+    const cx = platePart.width() / 2;
+    const cy = platePart.height() / 2;
 
     let part: Part | null = null;
 
@@ -44,14 +44,14 @@ function Parts() {
     }
 
     if (part) {
-      part.offsetX = cx - part.width / 2;
-      part.offsetY = cy - part.height / 2;
+      part.offsetX = cx - part.width() / 2;
+      part.offsetY = cy - part.height() / 2;
 
       actions.addPart(part);
     }
 
     closeModal();
-  }, [actions, closeModal, platePart.height, platePart.width]);
+  }, [actions, closeModal, platePart]);
 
   return (
     <>

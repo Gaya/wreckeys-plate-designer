@@ -51,12 +51,12 @@ type PartType = 'plate' | 'knob' | 'slider' | 'segment' | 'hole';
 interface PartBase {
   id: string;
   name: string;
-  width: number;
-  height: number;
+  width(): number;
+  height(): number;
   rotation?: number;
   offsetX?: number;
   offsetY?: number;
-  lines: PartLine[];
+  lines(): PartLine[];
 }
 
 interface PlatePart extends PartBase {
@@ -67,6 +67,7 @@ interface KnobPart extends PartBase {
   type: 'knob';
   options: {
     diameter: number;
+    guideDiameter: number;
   };
 }
 

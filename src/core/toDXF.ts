@@ -15,7 +15,7 @@ function toDXF(parts: Part[]): string {
     d.setActiveLayer(part.name);
 
     // needed for the Y flipping on the plate part
-    const positionY = (y: number): number => platePart.height - y;
+    const positionY = (y: number): number => platePart.height() - y;
 
     const drawLine = (x1: number, y1: number, x2: number, y2: number) => {
       return d.drawLine(x1, positionY(y1), x2, positionY(y2));
@@ -30,7 +30,7 @@ function toDXF(parts: Part[]): string {
     };
 
     // go through lines
-    for (let line of part.lines) {
+    for (let line of part.lines()) {
       if (line.isGuide) {
         continue;
       }

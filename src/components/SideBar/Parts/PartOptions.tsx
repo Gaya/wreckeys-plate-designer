@@ -1,6 +1,3 @@
-import { knobPart } from '../../../parts/knob';
-import { holePart } from '../../../parts/hole';
-
 import { useAppContext } from '../../App/AppContextProvider';
 
 interface PartOptionsProps {
@@ -20,21 +17,20 @@ function PartOptions({ part }: PartOptionsProps) {
             value={part.options.diameter}
             onChange={(e) => {
               const diameter = parseFloat(e.target.value)
-              let newPart: Part | null = null;
-
-              switch (part.type) {
-                case 'knob':
-                  newPart = knobPart(diameter, diameter + 10);
-                  break;
-
-                case 'hole':
-                  newPart = holePart(diameter);
-                  break;
-              }
-
-              if (newPart) {
-                actions.updatePartOptions(part.id, newPart);
-              }
+              actions.updatePartOptions(part.id, { diameter });
+            }}
+          />
+        </fieldset>
+      )}
+      {part.type === 'knob' && (
+        <fieldset>
+          <label htmlFor="diameter">Mechanism diameter:</label>
+          <input
+            type="number"
+            value={part.options.guideDiameter}
+            onChange={(e) => {
+              const guideDiameter = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { guideDiameter });
             }}
           />
         </fieldset>

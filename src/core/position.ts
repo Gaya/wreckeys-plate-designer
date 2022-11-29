@@ -1,10 +1,10 @@
 function xOffsetRelative(line: PartLine, part: Part): number {
   if (line.position.ax === 'right') {
-    return part.width - (line.type === 'rect' ? line.width : 0);
+    return part.width() - (line.type === 'rect' ? line.width : 0);
   }
 
   if (line.position.ax === 'middle') {
-    return part.width / 2  - (line.type === 'rect' ? line.width / 2 : 0);
+    return part.width() / 2  - (line.type === 'rect' ? line.width / 2 : 0);
   }
 
   return 0;
@@ -12,11 +12,11 @@ function xOffsetRelative(line: PartLine, part: Part): number {
 
 function yOffsetRelative(line: PartLine, part: Part): number {
   if (line.position.ay === 'bottom') {
-    return part.height - (line.type === 'rect' ? line.height : 0);
+    return part.height() - (line.type === 'rect' ? line.height : 0);
   }
 
   if (line.position.ay === 'middle') {
-    return part.height / 2 - (line.type === 'rect' ? line.height / 2 : 0);
+    return part.height() / 2 - (line.type === 'rect' ? line.height / 2 : 0);
   }
 
   return 0;

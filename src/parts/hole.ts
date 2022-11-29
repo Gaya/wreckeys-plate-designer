@@ -5,23 +5,31 @@ export function holePart(diameter = 6): HolePart {
     id: nanoid(),
     name: `Hole`,
     type: 'hole',
-    width: diameter,
-    height: diameter,
+    width: function () {
+      return this.options.diameter;
+    },
+    height: function () {
+      return this.options.diameter;
+    },
     offsetX: 0,
     offsetY: 0,
     options: {
       diameter,
     },
-    lines: [
-      {
-        id: 'main_hole',
-        type: 'circle',
-        radius: diameter / 2,
-        position: {
-          x: diameter / 2,
-          y: diameter / 2,
+    lines: function() {
+      const { diameter } = this.options;
+
+      return  [
+        {
+          id: 'main_hole',
+          type: 'circle',
+          radius: diameter / 2,
+          position: {
+            x: diameter / 2,
+            y: diameter / 2,
+          },
         },
-      },
-    ],
+      ];
+    },
   };
 }

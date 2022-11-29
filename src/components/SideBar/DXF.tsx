@@ -15,7 +15,7 @@ function DXF() {
 
     const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
     saveAs(blob, 'drawing.dxf');
-  }, [state.plate]);
+  }, [state.parts, state.plate]);
 
   return (
     <>
