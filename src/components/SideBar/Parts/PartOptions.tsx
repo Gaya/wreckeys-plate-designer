@@ -14,7 +14,7 @@ function PartOptions({ part }: PartOptionsProps) {
     <div className="PartOptions">
       {['knob', 'hole'].includes(part.type) && (
         <fieldset>
-          <label htmlFor="diameter">Diameter:</label>
+          <label htmlFor="diameter">Diameter (hole):</label>
           <input
             type="number"
             value={part.options.diameter}

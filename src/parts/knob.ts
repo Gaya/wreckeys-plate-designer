@@ -1,8 +1,6 @@
 import { nanoid } from 'nanoid';
 
-export function knobPart(diameter = 7, guideDiameter = 17): KnobPart {
-  const diameterSpacing = 0.2;
-
+export function knobPart(diameter = 7.2, guideDiameter = 17): KnobPart {
   return {
     id: nanoid(),
     name: 'Knob',
@@ -18,7 +16,7 @@ export function knobPart(diameter = 7, guideDiameter = 17): KnobPart {
       {
         id: 'main_hole',
         type: 'circle',
-        radius: (diameter + diameterSpacing) / 2,
+        radius: diameter / 2,
         position: {
           x: guideDiameter / 2,
           y: guideDiameter / 2,
