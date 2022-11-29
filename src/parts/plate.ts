@@ -93,13 +93,14 @@ function mountingHoles(plate: Plate): PartLine[] {
   return [];
 }
 
-export function plateToPart(plate: Plate): Part {
+export function plateToPart(plate: Plate): PlatePart {
   const width = plateWidth(plate);
   const height = plateHeight(plate);
   const radius = plate.type === '19inch' ? 3 : 1;
 
   return {
     id: 'plate',
+    type: 'plate',
     name: 'Back plate',
     width,
     height,

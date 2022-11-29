@@ -13,6 +13,7 @@ import hole from './hole.svg';
 
 import './Parts.scss';
 import PartRow from './PartRow';
+import { holePart } from '../../../parts/hole';
 
 function Parts() {
   const { state, actions } = useAppContext();
@@ -35,7 +36,11 @@ function Parts() {
     switch (type) {
       case 'knob':
         part = knobPart();
-      break;
+        break;
+
+      case 'hole':
+        part = holePart();
+        break;
     }
 
     if (part) {
@@ -73,7 +78,7 @@ function Parts() {
                 </button>
               </li>
               <li>
-                <button>
+                <button type="button" onClick={() => onAddPart('hole')}>
                   <img src={hole} alt="Hole" />
                   Hole
                 </button>

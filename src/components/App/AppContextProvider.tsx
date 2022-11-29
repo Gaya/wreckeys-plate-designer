@@ -70,8 +70,8 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
       addPart: (part) => setParts((currentParts) => [...currentParts, part]),
       removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
       updatePart: (id, part) => {
-        setParts((currentParts) => {
-          return currentParts.map((p) => {
+        setParts((currentParts: Part[]) => {
+          return currentParts.map(function mergePart<T extends Part>(p: T): T {
             if (p.id !== id) {
               return p;
             }
