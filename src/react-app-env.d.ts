@@ -57,3 +57,5 @@ interface Part {
   offsetY?: number;
   lines: PartLine[];
 }
+
+type PartType = 'knob' | 'slider' | 'segment' | 'hole';

@@ -1,5 +1,8 @@
 import { useCallback, useState } from 'react';
 
+import { knobPart } from '../../../parts/knob';
+import { plateToPart } from '../../../parts/plate';
+
 import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
 
@@ -12,14 +15,38 @@ import './Parts.scss';
 import PartRow from './PartRow';
 
 function Parts() {
-  const { state } = useAppContext();
+  const { state, actions } = useAppContext();
 
-  const { parts } = state;
+  const { parts, plate } = state;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeModal = useCallback(() => setIsModalOpen(false), []);
   const openModal = useCallback(() => setIsModalOpen(true), []);
+
+  const platePart = plateToPart(plate);
+
+  const onAddPart = useCallback((type: PartType) => {
+    const cx = platePart.width / 2;
+    const cy = platePart.height / 2;
+
+    let part: Part | null = null;
+
+    switch (type) {
+      case 'knob':
+        part = knobPart();
+      break;
+    }
+
+    if (part) {
+      part.offsetX = cx - part.width / 2;
+      part.offsetY = cy - part.height / 2;
+
+      actions.addPart(part);
+    }
+
+    closeModal();
+  }, [actions, closeModal, platePart.height, platePart.width]);
 
   return (
     <>
@@ -28,7 +55,7 @@ function Parts() {
           <section className="parts-options">
             <ul>
               <li>
-                <button type="button">
+                <button type="button" onClick={() => onAddPart('knob')}>
                   <img src={knob} alt="Knob" />
                   Knob
                 </button>

@@ -8,8 +8,8 @@ export function knobPart(diameter = 7, guideDiameter = 17): Part {
     name: 'Knob',
     width: (diameter / 2) + guideDiameter,
     height: guideDiameter,
-    offsetX: 30,
-    offsetY: 40,
+    offsetX: 0,
+    offsetY: 0,
     lines: [
       {
         id: 'main_hole',

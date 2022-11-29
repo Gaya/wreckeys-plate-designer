@@ -7,8 +7,9 @@ interface AppState {
 
 interface AppActions {
   updatePlate: (newState: Partial<AppState['plate']>) => void;
-  updatePart: (id: Part['id'], part: Partial<Part>) => void;
+  addPart: (part: Part) => void;
   removePart: (id: Part['id']) => void;
+  updatePart: (id: Part['id'], part: Partial<Part>) => void;
 }
 
 interface AppContextShape {
@@ -29,8 +30,9 @@ const AppContext = createContext<AppContextShape>({
   state: defaultState,
   actions: {
     updatePlate: () => { throw new Error('Not implemented') },
-    updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
+    addPart: (part: Part) => { throw new Error('Not implemented') },
     removePart: (id: Part['id']) => { throw new Error('Not implemented') },
+    updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
   },
 });
 
@@ -52,6 +54,8 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
   const actions = useMemo((): AppActions => {
     return {
       updatePlate: (newState) => setPlate((prevState) => ({ ...prevState, ...newState })),
+      addPart: (part) => setParts((currentParts) => [...currentParts, part]),
+      removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
       updatePart: (id, part) => {
         setParts((currentParts) => {
           return currentParts.map((p) => {
@@ -66,7 +70,6 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
           });
         });
       },
-      removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
     };
   }, []);
 
