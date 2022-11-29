@@ -27,6 +27,15 @@ aside {
             display: block;
             width: 100%;
         }
+
+        &.inline {
+            display: flex;
+
+            label {
+                margin: 0 0 0 0.5em;
+                user-select: none;
+            }
+        }
     }
 
     .sidebar-option {

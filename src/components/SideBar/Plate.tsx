@@ -8,6 +8,7 @@ function Plate() {
   const { state, actions } = useAppContext();
 
   const { type, width, height } = state.plate;
+  const { showGuides } = state.options;
 
   const onUpdateType = useCallback((newType: typeof type) => {
     actions.updatePlate({ type: newType });
@@ -70,6 +71,15 @@ function Plate() {
           />
         </fieldset>
       )}
+      <fieldset className="inline">
+        <input
+          id="showSGuides"
+          type="checkbox"
+          checked={showGuides}
+          onChange={() => actions.setGuides(!showGuides)}
+        />
+        <label htmlFor="showSGuides">Show Guides</label>
+      </fieldset>
     </>
   )
 }

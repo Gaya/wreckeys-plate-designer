@@ -67,7 +67,7 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
     resizeObserver.observe(main);
   }, []);
 
-  const value = useMemo(() => ({
+  const value = useMemo((): EditorContextShape => ({
     ...dimensions,
     pixelRatio: totalWidth > totalHeight
       ? dimensions.width / totalWidth

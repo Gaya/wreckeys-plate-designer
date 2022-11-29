@@ -14,7 +14,7 @@ interface PartRendererProps {
 }
 
 function PartRenderer({ part, editable }: PartRendererProps) {
-  const { actions } = useAppContext();
+  const { state, actions } = useAppContext();
   const { pixelRatio } = useEditorContext();
 
   const mousePosition = useRef<{ x: number; y: number; dx: number; dy: number } | null>(null);
@@ -73,6 +73,10 @@ function PartRenderer({ part, editable }: PartRendererProps) {
       style={{ cursor: editable ? 'move' : 'default' }}
     >
       {part.lines.map((line) => {
+        if (line.isGuide && !state.options.showGuides) {
+          return null;
+        }
+
         if (line.type === 'rect') {
           return <LineRectRenderer part={part} key={line.id} rect={line} />;
         }
