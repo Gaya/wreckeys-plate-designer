@@ -34,14 +34,25 @@ button {
   text-transform: uppercase;
   outline: none;
   background-color: transparent;
-  color: var(--main);
-  border-color: var(--main);
+  color: var(--text);
+  border-color: var(--text);
   cursor: pointer;
 
   &:hover, &:active, &:focus {
-    background-color: var(--main);
+    background-color: var(--text);
     color: var(--bg);
-    border: 2px solid var(--main);
+    border: 2px solid var(--text);
+  }
+
+  &.main {
+    color: var(--main);
+    border-color: var(--main);
+
+    &:hover, &:active, &:focus {
+      background-color: var(--main);
+      color: var(--bg);
+      border: 2px solid var(--main);
+    }
   }
 }
 
