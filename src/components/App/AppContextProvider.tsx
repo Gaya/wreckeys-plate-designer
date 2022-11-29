@@ -1,7 +1,5 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
-import { knobPart } from '../../parts/knob';
-
 interface AppState {
   plate: Plate;
   parts: Part[];
@@ -24,9 +22,7 @@ const defaultState: AppState = {
     width: 19,
     height: 3,
   },
-  parts: [
-    knobPart(),
-  ],
+  parts: [],
 };
 
 const AppContext = createContext<AppContextShape>({
@@ -70,7 +66,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
           });
         });
       },
-      removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id === id)),
+      removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
     };
   }, []);
 

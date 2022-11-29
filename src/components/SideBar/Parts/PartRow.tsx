@@ -21,13 +21,18 @@ function PartRow({ part }: PartRowProps) {
     actions.updatePart(part.id, { offsetY: parseFloat(e.target.value) });
   }, [actions, part.id]);
 
-  // todo: aff remove of part
+  const onRemovePart = useCallback(() => {
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm(`Are you sure you want to remove "${part.name}"`)) {
+      actions.removePart(part.id);
+    }
+  }, [actions, part.id, part.name]);
 
   return (
     <div className="PartRow">
       <div className="PartRow_Name">
         <input type="text" value={part.name} onChange={onUpdateName} />
-        <button type="button">×</button>
+        <button type="button" onClick={onRemovePart}>×</button>
       </div>
       <div className="PartRow_Position">
         <section>
