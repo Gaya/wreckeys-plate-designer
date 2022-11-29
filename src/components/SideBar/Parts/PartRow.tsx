@@ -1,7 +1,11 @@
 import { ChangeEventHandler, useCallback, useState } from 'react';
 
+import { isPartWithOptions } from '../../../core/part';
+
 import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
+
+import PartOptions from './PartOptions';
 
 import options from './options.svg';
 
@@ -54,6 +58,7 @@ function PartRow({ part }: PartRowProps) {
               </section>
             </fieldset>
           </div>
+          {isPartWithOptions(part) && <PartOptions part={part} />}
           <div className="PartRow_Actions">
             <button
               type="button"

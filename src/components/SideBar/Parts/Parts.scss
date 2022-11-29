@@ -83,10 +83,10 @@
   }
 
   .PartRow_Position {
-    margin: 0.5em 0;
+    margin: 0.5em 0 0;
 
     fieldset {
-      padding: 0.5em 0;
+      padding: 0.5em 0 0;
       display: flex;
       justify-content: space-between;
     }
@@ -112,9 +112,26 @@
   .PartRow_Actions {
     display: flex;
     justify-content: flex-end;
+    margin-top: 0.5em;
 
     button {
       margin-left: 1em;
+    }
+  }
+}
+
+.PartOptions {
+  fieldset {
+    padding: 1em 0;
+    display: flex;
+    align-items: center;
+
+    label {
+      margin: 0 0.5em 0 0;
+    }
+
+    input {
+      flex-grow: 1;
     }
   }
 }

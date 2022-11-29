@@ -77,4 +77,5 @@ interface HolePart extends PartBase {
   };
 }
 
-type Part = PlatePart | KnobPart | HolePart;
+type PartWithOptions = KnobPart | HolePart;
+type Part = PlatePart | PartWithOptions;

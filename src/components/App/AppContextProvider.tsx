@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
+import { isPartWithOptions } from '../../core/part';
+
 interface AppState {
   plate: Plate;
   options: {
@@ -14,6 +16,7 @@ interface AppActions {
   addPart: (part: Part) => void;
   removePart: (id: Part['id']) => void;
   updatePart: (id: Part['id'], part: Partial<Part>) => void;
+  updatePartOptions: (id: Part['id'], newOptions: PartWithOptions) => void;
 }
 
 interface AppContextShape {
@@ -41,6 +44,7 @@ const AppContext = createContext<AppContextShape>({
     addPart: (part: Part) => { throw new Error('Not implemented') },
     removePart: (id: Part['id']) => { throw new Error('Not implemented') },
     updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
+    updatePartOptions: (id: Part['id'], part: PartWithOptions) => { throw new Error('Not implemented') },
   },
 });
 
@@ -80,6 +84,24 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
               ...p,
               ...part,
             };
+          });
+        });
+      },
+      updatePartOptions: (id: Part['id'], newPart: PartWithOptions) => {
+        setParts((currentParts: Part[]) => {
+          return currentParts.map(function mergePart<T extends Part>(p: T): T {
+            if (p.id === id && isPartWithOptions(p)) {
+              return {
+                ...p,
+                options: {
+                  ...p.options,
+                  ...newPart.options,
+                },
+                lines: newPart.lines,
+              };
+            }
+
+            return p;
           });
         });
       },
