@@ -14,6 +14,7 @@ import hole from './hole.svg';
 import './Parts.scss';
 import PartRow from './PartRow';
 import { holePart } from '../../../parts/hole';
+import { sliderPart } from '../../../parts/slider';
 
 function Parts() {
   const { state, actions } = useAppContext();
@@ -41,6 +42,10 @@ function Parts() {
       case 'hole':
         part = holePart();
         break;
+
+      case 'slider':
+        part = sliderPart();
+        break;
     }
 
     if (part) {
@@ -66,7 +71,7 @@ function Parts() {
                 </button>
               </li>
               <li>
-                <button type="button">
+                <button type="button" onClick={() => onAddPart('slider')}>
                   <img src={slider} alt="Slider" />
                   Slider
                 </button>

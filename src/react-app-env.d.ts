@@ -78,5 +78,12 @@ interface HolePart extends PartBase {
   };
 }
 
-type PartWithOptions = KnobPart | HolePart;
+interface SliderPart extends PartBase {
+  type: 'slider';
+  options: {
+    length: number;
+  };
+}
+
+type PartWithOptions = KnobPart | HolePart | SliderPart;
 type Part = PlatePart | PartWithOptions;

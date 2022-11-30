@@ -9,10 +9,11 @@ function PartOptions({ part }: PartOptionsProps) {
 
   return (
     <div className="PartOptions">
-      {['knob', 'hole'].includes(part.type) && (
+      {'diameter' in part.options && (
         <fieldset>
           <label htmlFor="diameter">Diameter (hole):</label>
           <input
+            id="diameter"
             type="number"
             value={part.options.diameter}
             onChange={(e) => {
@@ -22,10 +23,11 @@ function PartOptions({ part }: PartOptionsProps) {
           />
         </fieldset>
       )}
-      {part.type === 'knob' && (
+      {'guideDiameter' in part.options && (
         <fieldset>
-          <label htmlFor="diameter">Mechanism diameter:</label>
+          <label htmlFor="guideDiameter">Mechanism diameter:</label>
           <input
+            id="guideDiameter"
             type="number"
             value={part.options.guideDiameter}
             onChange={(e) => {
