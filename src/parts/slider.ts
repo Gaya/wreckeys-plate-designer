@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-export function sliderPart(length = 75): SliderPart {
+export function sliderPart(length = 60): SliderPart {
   return {
     id: nanoid(),
     name: `Slider`,
@@ -17,6 +17,8 @@ export function sliderPart(length = 75): SliderPart {
       length,
     },
     lines: function() {
+      const drillHoleRadius = 2.2 / 2;
+
       return  [
         {
           id: 'mechanism',
@@ -30,8 +32,11 @@ export function sliderPart(length = 75): SliderPart {
         {
           id: 'drill_hole_1',
           type: 'circle',
-          position: { x: this.width() / 2, y: 2 },
-          radius: 2.2 / 2,
+          position: {
+            x: this.width() / 2,
+            y: 2,
+          },
+          radius: drillHoleRadius,
         },
         {
           id: 'drill_hole_2',
@@ -41,8 +46,19 @@ export function sliderPart(length = 75): SliderPart {
             x: this.width() / 2,
             y: 2,
           },
-          radius: 2.2 / 2,
+          radius: drillHoleRadius,
         },
+        {
+          id: 'slider_track',
+          type: 'rect',
+          position: {
+            x: (this.width() / 2) - 1.1,
+            y: 4 - 0.2,
+          },
+          width: 2.2,
+          height: (this.height() - 8) + 0.4,
+          radius: 0.2,
+        }
       ];
     },
   };
