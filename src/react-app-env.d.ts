@@ -85,5 +85,10 @@ interface SliderPart extends PartBase {
   };
 }
 
+interface SegmentPart extends PartBase {
+  type: 'segment';
+}
+
 type PartWithOptions = KnobPart | HolePart | SliderPart;
-type Part = PlatePart | PartWithOptions;
+type PartWithoutOptions = PlatePart | SegmentPart;
+type Part = PartWithoutOptions | PartWithOptions;

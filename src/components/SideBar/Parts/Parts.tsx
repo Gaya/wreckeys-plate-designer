@@ -15,6 +15,7 @@ import './Parts.scss';
 import PartRow from './PartRow';
 import { holePart } from '../../../parts/hole';
 import { sliderPart } from '../../../parts/slider';
+import { segmentPart } from '../../../parts/segment';
 
 function Parts() {
   const { state, actions } = useAppContext();
@@ -45,6 +46,10 @@ function Parts() {
 
       case 'slider':
         part = sliderPart();
+        break;
+
+      case 'segment':
+        part = segmentPart();
         break;
     }
 
@@ -77,7 +82,7 @@ function Parts() {
                 </button>
               </li>
               <li>
-                <button>
+                <button type="button" onClick={() => onAddPart('segment')}>
                   <img src={segment} alt="Segment" />
                   Segment Display
                 </button>
@@ -98,9 +103,11 @@ function Parts() {
           + Add Part
         </button>
       </fieldset>
-      {parts.map((part) => (
-        <PartRow key={part.id} part={part} />
-      ))}
+      <section className="PartsList">
+        {parts.map((part) => (
+          <PartRow key={part.id} part={part} />
+        ))}
+      </section>
     </>
   );
 }
