@@ -65,11 +65,20 @@ function PartRenderer({ part, editable }: PartRendererProps) {
     };
   }, [actions, part.id, part.offsetX, part.offsetY, pixelRatio]);
 
+  const x = movingOffset.dx / pixelRatio;
+  const y = movingOffset.dy / pixelRatio;
+
+  // rotate(
+  //   ${part.rotation || 0},
+  //   ${(part.offsetX || 0) + (part.width() / 2) + x},
+  //   ${(part.offsetY || 0) + (part.height() / 2) + y}
+  // )
+
   return (
     <g
       id={part.id}
       onMouseDown={onMouseDown}
-      transform={`translate(${movingOffset.dx / pixelRatio}, ${movingOffset.dy / pixelRatio})`}
+      transform={`translate(${x}, ${y})`}
       style={{ cursor: editable ? 'move' : 'default' }}
     >
       {part.lines().map((line) => {

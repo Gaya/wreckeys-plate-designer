@@ -11,6 +11,7 @@ export function sliderPart(length = 60): SliderPart {
     height: function () {
       return this.options.length;
     },
+    rotation: 0,
     offsetX: 0,
     offsetY: 0,
     options: {

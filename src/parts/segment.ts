@@ -11,6 +11,7 @@ export function segmentPart(): SegmentPart {
     height: function () {
       return 24;
     },
+    rotation: 90,
     offsetX: 0,
     offsetY: 0,
     lines: function() {

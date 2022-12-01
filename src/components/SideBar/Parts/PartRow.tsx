@@ -8,6 +8,7 @@ import Modal from '../../Modal/Modal';
 import PartOptions from './PartOptions';
 
 import options from './options.svg';
+import rotate from './rotate.svg';
 
 interface PartRowProps {
   part: Part;
@@ -20,6 +21,8 @@ function PartRow({ part }: PartRowProps) {
 
   const openModal = useCallback(() => setIsModalOpen(true), []);
   const closeModal = useCallback(() => setIsModalOpen(false), []);
+
+  const hasRotation = typeof part.rotation !== 'undefined';
 
   const onUpdateName: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
     actions.updatePart(part.id, { name: e.target.value });
@@ -41,6 +44,12 @@ function PartRow({ part }: PartRowProps) {
     }
   }, [actions, closeModal, part.id, part.name]);
 
+  const onRotate = useCallback(() => {
+    if (typeof part.rotation !== 'undefined') {
+      actions.updatePart(part.id, { rotation: (part.rotation + 90) % 360 })
+    }
+  }, [actions, part.id, part.rotation]);
+
   return (
     <div className="PartRow">
       <Modal open={isModalOpen} onClose={closeModal}>
@@ -50,11 +59,11 @@ function PartRow({ part }: PartRowProps) {
             <fieldset>
               <section>
                 <label>x:</label>
-                <input type="number" value={part.offsetX?.toFixed(2)} onChange={onUpdateOffsetX} />
+                <input type="number" value={part.offsetX?.toString().match(/\d+\.\d{3,}/) ? part.offsetX?.toFixed(2) : part.offsetX} onChange={onUpdateOffsetX} />
               </section>
               <section>
                 <label>y:</label>
-                <input type="number" value={part.offsetY?.toFixed(2)} onChange={onUpdateOffsetY} />
+                <input type="number" value={part.offsetY?.toString().match(/\d+\.\d{3,}/) ? part.offsetY?.toFixed(2) : part.offsetY} onChange={onUpdateOffsetY} />
               </section>
             </fieldset>
           </div>
@@ -75,8 +84,13 @@ function PartRow({ part }: PartRowProps) {
       </Modal>
       <div className="PartRow_Name">
         <input type="text" value={part.name} onChange={onUpdateName} />
+        {hasRotation && (
+          <button type="button" className="options" onClick={onRotate}>
+            <img src={rotate} alt="Rotate 90 degrees" />
+          </button>
+        )}
         <button type="button" className="options" onClick={openModal}>
-          <img src={options} alt="Options"/>
+          <img src={options} alt="Options" />
         </button>
       </div>
     </div>
