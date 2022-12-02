@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import lines from './lines';
+
 export function segmentPart(): SegmentPart {
   return {
     id: nanoid(),
@@ -11,10 +13,10 @@ export function segmentPart(): SegmentPart {
     height: function () {
       return 24;
     },
-    rotation: 90,
+    rotation: 0,
     offsetX: 0,
     offsetY: 0,
-    lines: function() {
+    generateLines: function() {
       return  [
         {
           id: 'device_guide',
@@ -89,5 +91,6 @@ export function segmentPart(): SegmentPart {
         }
       ];
     },
+    lines,
   };
 }

@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import lines from './lines';
+
 export function knobPart(diameter = 7.2, guideDiameter = 17): KnobPart {
   return {
     id: nanoid(),
@@ -21,7 +23,7 @@ export function knobPart(diameter = 7.2, guideDiameter = 17): KnobPart {
       diameter,
       guideDiameter,
     },
-    lines: function() {
+    generateLines: function() {
       const { diameter: d, guideDiameter: gd } = this.options;
 
       return [
@@ -46,5 +48,6 @@ export function knobPart(diameter = 7.2, guideDiameter = 17): KnobPart {
         },
       ];
     },
+    lines,
   };
 }

@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import lines from './lines';
+
 export function sliderPart(length = 60): SliderPart {
   return {
     id: nanoid(),
@@ -17,7 +19,7 @@ export function sliderPart(length = 60): SliderPart {
     options: {
       length,
     },
-    lines: function() {
+    generateLines: function() {
       const drillHoleRadius = 2.2 / 2;
 
       return  [
@@ -62,5 +64,6 @@ export function sliderPart(length = 60): SliderPart {
         }
       ];
     },
+    lines,
   };
 }

@@ -68,12 +68,6 @@ function PartRenderer({ part, editable }: PartRendererProps) {
   const x = movingOffset.dx / pixelRatio;
   const y = movingOffset.dy / pixelRatio;
 
-  // rotate(
-  //   ${part.rotation || 0},
-  //   ${(part.offsetX || 0) + (part.width() / 2) + x},
-  //   ${(part.offsetY || 0) + (part.height() / 2) + y}
-  // )
-
   return (
     <g
       id={part.id}

@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 
+import lines from './lines';
+
 export function holePart(diameter = 6): HolePart {
   return {
     id: nanoid(),
@@ -16,7 +18,7 @@ export function holePart(diameter = 6): HolePart {
     options: {
       diameter,
     },
-    lines: function() {
+    generateLines: function() {
       const { diameter } = this.options;
 
       return  [
@@ -31,5 +33,6 @@ export function holePart(diameter = 6): HolePart {
         },
       ];
     },
+    lines,
   };
 }

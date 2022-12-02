@@ -56,6 +56,7 @@ interface PartBase {
   rotation?: number;
   offsetX?: number;
   offsetY?: number;
+  generateLines(): PartLine[];
   lines(): PartLine[];
 }
 

@@ -1,5 +1,7 @@
 import { plateHeight, plateWidth } from '../core/calc';
 
+import lines from './lines';
+
 function guidelines(plate: Plate): PartLine[] {
   const width = plateWidth(plate);
   const height = plateHeight(plate);
@@ -108,7 +110,7 @@ export function plateToPart(plate: Plate): PlatePart {
     height: function () {
       return height;
     },
-    lines: function() {
+    generateLines: function() {
       return [
         {
           id: 'base',
@@ -122,5 +124,6 @@ export function plateToPart(plate: Plate): PlatePart {
         ...mountingHoles(plate),
       ];
     },
+    lines,
   };
 }
