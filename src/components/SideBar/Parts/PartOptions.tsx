@@ -58,7 +58,7 @@ function PartOptions({ part }: PartOptionsProps) {
       )}
       {'width' in part.options && (
         <fieldset>
-          <label htmlFor="width">Width (mm):</label>
+          <label htmlFor="width">Width:</label>
           <input
             id="width"
             type="number"
@@ -72,7 +72,7 @@ function PartOptions({ part }: PartOptionsProps) {
       )}
       {'height' in part.options && (
         <fieldset>
-          <label htmlFor="height">Height (mm):</label>
+          <label htmlFor="height">Height:</label>
           <input
             id="height"
             type="number"
@@ -86,7 +86,7 @@ function PartOptions({ part }: PartOptionsProps) {
       )}
       {'radius' in part.options && (
         <fieldset>
-          <label htmlFor="radius">Rounded Corners (mm):</label>
+          <label htmlFor="radius">Rounded Corners:</label>
           <input
             id="radius"
             type="number"
@@ -94,6 +94,34 @@ function PartOptions({ part }: PartOptionsProps) {
             onChange={(e) => {
               const radius = parseFloat(e.target.value)
               actions.updatePartOptions(part.id, { radius });
+            }}
+          />
+        </fieldset>
+      )}
+      {'x' in part.options && (
+        <fieldset>
+          <label htmlFor="x">Length X-Axis:</label>
+          <input
+            id="x"
+            type="number"
+            value={part.options.x}
+            onChange={(e) => {
+              const x = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { x });
+            }}
+          />
+        </fieldset>
+      )}
+      {'y' in part.options && (
+        <fieldset>
+          <label htmlFor="y">Length Y-Axis:</label>
+          <input
+            id="y"
+            type="number"
+            value={part.options.y}
+            onChange={(e) => {
+              const y = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { y });
             }}
           />
         </fieldset>

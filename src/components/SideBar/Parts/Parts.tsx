@@ -5,6 +5,8 @@ import { plateToPart } from '../../../parts/plate';
 import { circlePart } from '../../../parts/circle';
 import { sliderPart } from '../../../parts/slider';
 import { segmentPart } from '../../../parts/segment';
+import { rectPart } from '../../../parts/rect';
+import { guideLinePart } from '../../../parts/guideLine';
 
 import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
@@ -18,7 +20,6 @@ import guide from './guide.svg';
 
 import './Parts.scss';
 import PartRow from './PartRow';
-import { rectPart } from '../../../parts/rect';
 
 function Parts() {
   const { state, actions } = useAppContext();
@@ -57,6 +58,10 @@ function Parts() {
 
       case 'rect':
         part = rectPart();
+        break;
+
+      case 'guideline':
+        part = guideLinePart();
         break;
     }
 
@@ -107,7 +112,7 @@ function Parts() {
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => onAddPart('guide')}>
+                <button type="button" onClick={() => onAddPart('guideline')}>
                   <img src={guide} alt="Guide Line" />
                   Guide Line
                 </button>

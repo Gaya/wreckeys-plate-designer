@@ -46,7 +46,7 @@ interface LineCircle extends LineBase {
 }
 
 type PartLine = LineLine | LineRect | LineCircle;
-type PartType = 'plate' | 'knob' | 'slider' | 'segment' | 'circle' | 'rect' | 'guide';
+type PartType = 'plate' | 'knob' | 'slider' | 'segment' | 'circle' | 'rect' | 'guideline';
 
 interface PartBase {
   id: string;
@@ -99,6 +99,14 @@ interface RectPart extends PartBase {
   };
 }
 
-type PartWithOptions = KnobPart | CirclePart | SliderPart | RectPart;
+interface GuideLinePart extends PartBase {
+  type: 'guideline';
+  options: {
+    x: number;
+    y: number;
+  };
+}
+
+type PartWithOptions = KnobPart | CirclePart | SliderPart | RectPart | GuideLinePart;
 type PartWithoutOptions = PlatePart | SegmentPart;
 type Part = PartWithoutOptions | PartWithOptions;
