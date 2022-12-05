@@ -2,6 +2,9 @@ import { useCallback, useState } from 'react';
 
 import { knobPart } from '../../../parts/knob';
 import { plateToPart } from '../../../parts/plate';
+import { circlePart } from '../../../parts/circle';
+import { sliderPart } from '../../../parts/slider';
+import { segmentPart } from '../../../parts/segment';
 
 import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
@@ -10,12 +13,12 @@ import knob from './knob.svg';
 import slider from './slider.svg';
 import segment from './segment.svg';
 import circle from './circle.svg';
+import rect from './rect.svg';
+import guide from './guide.svg';
 
 import './Parts.scss';
 import PartRow from './PartRow';
-import { circlePart } from '../../../parts/circle';
-import { sliderPart } from '../../../parts/slider';
-import { segmentPart } from '../../../parts/segment';
+import { rectPart } from '../../../parts/rect';
 
 function Parts() {
   const { state, actions } = useAppContext();
@@ -50,6 +53,10 @@ function Parts() {
 
       case 'segment':
         part = segmentPart();
+        break;
+
+      case 'rect':
+        part = rectPart();
         break;
     }
 
@@ -91,6 +98,18 @@ function Parts() {
                 <button type="button" onClick={() => onAddPart('circle')}>
                   <img src={circle} alt="Circle" />
                   Circle
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => onAddPart('rect')}>
+                  <img src={rect} alt="Rectangle" />
+                  Rectangle
+                </button>
+              </li>
+              <li>
+                <button type="button" onClick={() => onAddPart('guide')}>
+                  <img src={guide} alt="Guide Line" />
+                  Guide Line
                 </button>
               </li>
             </ul>

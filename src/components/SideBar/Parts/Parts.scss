@@ -2,13 +2,13 @@
   ul {
     display: flex;
     flex-wrap: wrap;
-    width: 400px;
+    width: 600px;
   }
 
   ul li {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 33%;
     flex-grow: 1;
     flex-shrink: 0;
     padding: 0.5em;

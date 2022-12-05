@@ -56,6 +56,48 @@ function PartOptions({ part }: PartOptionsProps) {
           <div className="info">Track size: {part.options.length - 4}mm</div>
         </fieldset>
       )}
+      {'width' in part.options && (
+        <fieldset>
+          <label htmlFor="width">Width (mm):</label>
+          <input
+            id="width"
+            type="number"
+            value={part.options.width}
+            onChange={(e) => {
+              const width = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { width });
+            }}
+          />
+        </fieldset>
+      )}
+      {'height' in part.options && (
+        <fieldset>
+          <label htmlFor="height">Height (mm):</label>
+          <input
+            id="height"
+            type="number"
+            value={part.options.height}
+            onChange={(e) => {
+              const height = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { height });
+            }}
+          />
+        </fieldset>
+      )}
+      {'radius' in part.options && (
+        <fieldset>
+          <label htmlFor="radius">Rounded Corners (mm):</label>
+          <input
+            id="radius"
+            type="number"
+            value={part.options.radius}
+            onChange={(e) => {
+              const radius = parseFloat(e.target.value)
+              actions.updatePartOptions(part.id, { radius });
+            }}
+          />
+        </fieldset>
+      )}
     </div>
   );
 }

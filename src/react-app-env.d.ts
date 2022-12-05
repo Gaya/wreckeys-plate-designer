@@ -90,6 +90,15 @@ interface SegmentPart extends PartBase {
   type: 'segment';
 }
 
-type PartWithOptions = KnobPart | CirclePart | SliderPart;
+interface RectPart extends PartBase {
+  type: 'rect';
+  options: {
+    width: number;
+    height: number;
+    radius: number;
+  };
+}
+
+type PartWithOptions = KnobPart | CirclePart | SliderPart | RectPart;
 type PartWithoutOptions = PlatePart | SegmentPart;
 type Part = PartWithoutOptions | PartWithOptions;
