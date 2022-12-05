@@ -3,7 +3,7 @@ aside {
     width: 300px;
     display: flex;
     flex-direction: column;
-    max-height: 100vh;
+    max-height: calc(100vh - 38px);
 
     h2 {
         color: var(--bg);
@@ -36,6 +36,11 @@ aside {
                 margin: 0 0 0 0.5em;
                 user-select: none;
             }
+        }
+
+        &.Download {
+            display: flex;
+            justify-content: center;
         }
     }
 

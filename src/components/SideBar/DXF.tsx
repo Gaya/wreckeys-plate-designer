@@ -14,15 +14,15 @@ function DXF() {
     const dxfString = toDXF([platePart, ...state.parts]);
 
     const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, 'drawing.dxf');
+    saveAs(blob, 'wreckeys-plate-drawing.dxf');
   }, [state.parts, state.plate]);
 
   return (
     <>
-      <h2>Download</h2>
-      <fieldset>
+      <h2>Save Plate</h2>
+      <fieldset className="Download">
         <button type="button" onClick={convertToDXF}>
-          Create DXF
+          Create DXF File
         </button>
       </fieldset>
     </>
