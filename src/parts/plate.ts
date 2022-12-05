@@ -73,20 +73,41 @@ function mountingHoles(plate: Plate): PartLine[] {
     const mountingHoleXOffset = 7.5;
     const mountingHoleYOffset = 3;
     const mountingHoleDiameter = 3.2;
+    const mountingHoleWidth = 6;
 
-    return (plate.height === 1 ? [1, 2] : [1, 2, 3, 4]).map((i): LineCircle => {
-      const x = mountingHoleXOffset;
-      const y = mountingHoleYOffset;
+    if (plate.width === 1) {
+      return [{
+        id: 'mounting_hole_1',
+        type: 'circle',
+        position: {
+          x: 5.08 / 2,
+          y: mountingHoleYOffset,
+        },
+        radius: mountingHoleDiameter / 2,
+      }, {
+        id: 'mounting_hole_2',
+        type: 'circle',
+        position: {
+          ay: 'bottom',
+          x: 5.08 / 2,
+          y: mountingHoleYOffset,
+        },
+        radius: mountingHoleDiameter / 2,
+      }];
+    }
 
+    return (plate.width < 5 ? [1, 4] : [1, 2, 3, 4]).map((i): LineRect => {
       return {
         id: `mounting_hole_${i}`,
-        type: 'circle',
+        type: 'rect',
         position: {
           ax: i % 2 === 0 ? 'right' : 'left',
           ay: i > 2 ? 'bottom' : 'top',
-          x,
-          y,
+          x: mountingHoleXOffset - mountingHoleWidth,
+          y: mountingHoleYOffset - mountingHoleDiameter / 2,
         },
+        width: mountingHoleWidth,
+        height: mountingHoleDiameter,
         radius: mountingHoleDiameter / 2,
       };
     });
