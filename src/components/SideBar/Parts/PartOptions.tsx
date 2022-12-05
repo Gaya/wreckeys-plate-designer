@@ -15,6 +15,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="diameter"
             type="number"
+            min={0}
             value={part.options.diameter}
             onChange={(e) => {
               const diameter = parseFloat(e.target.value)
@@ -29,6 +30,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="guideDiameter"
             type="number"
+            min={0}
             value={part.options.guideDiameter}
             onChange={(e) => {
               const guideDiameter = parseFloat(e.target.value)
@@ -62,6 +64,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="width"
             type="number"
+            min={0}
             value={part.options.width}
             onChange={(e) => {
               const width = parseFloat(e.target.value)
@@ -76,6 +79,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="height"
             type="number"
+            min={0}
             value={part.options.height}
             onChange={(e) => {
               const height = parseFloat(e.target.value)
@@ -91,6 +95,7 @@ function PartOptions({ part }: PartOptionsProps) {
             id="radius"
             type="number"
             value={part.options.radius}
+            min={0}
             onChange={(e) => {
               const radius = parseFloat(e.target.value)
               actions.updatePartOptions(part.id, { radius });
@@ -104,6 +109,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="x"
             type="number"
+            min={0}
             value={part.options.x}
             onChange={(e) => {
               const x = parseFloat(e.target.value)
@@ -118,6 +124,7 @@ function PartOptions({ part }: PartOptionsProps) {
           <input
             id="y"
             type="number"
+            min={0}
             value={part.options.y}
             onChange={(e) => {
               const y = parseFloat(e.target.value)

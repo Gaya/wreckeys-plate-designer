@@ -14,6 +14,10 @@ function Plate() {
     actions.updatePlate({ type: newType });
   }, [actions]);
 
+  const onUpdateWidth = useCallback((newWidth: typeof width) => {
+    actions.updatePlate({ width: parseInt(newWidth.toString(), 10) });
+  }, [actions]);
+
   const onUpdateHeight = useCallback((newHeight: typeof height) => {
     actions.updatePlate({ height: parseInt(newHeight.toString(), 10) });
   }, [actions]);
@@ -39,7 +43,12 @@ function Plate() {
       {(type === 'custom' || type === 'eurorack') && (
         <fieldset>
           <label htmlFor="width">Width</label>
-          <input type="number" defaultValue={width} />
+          <input
+            type="number"
+            value={width}
+            onChange={(e) => onUpdateWidth(parseFloat(e.target.value))}
+            min={1}
+          />
         </fieldset>
       )}
       {type === '19inch' && (
