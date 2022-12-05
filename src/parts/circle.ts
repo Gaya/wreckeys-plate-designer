@@ -2,11 +2,11 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function holePart(diameter = 6): HolePart {
+export function circlePart(diameter = 6): CirclePart {
   return {
     id: nanoid(),
     name: `Hole`,
-    type: 'hole',
+    type: 'circle',
     width: function () {
       return this.options.diameter;
     },

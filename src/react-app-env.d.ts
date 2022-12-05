@@ -46,7 +46,7 @@ interface LineCircle extends LineBase {
 }
 
 type PartLine = LineLine | LineRect | LineCircle;
-type PartType = 'plate' | 'knob' | 'slider' | 'segment' | 'hole';
+type PartType = 'plate' | 'knob' | 'slider' | 'segment' | 'circle' | 'rect' | 'guide';
 
 interface PartBase {
   id: string;
@@ -72,8 +72,8 @@ interface KnobPart extends PartBase {
   };
 }
 
-interface HolePart extends PartBase {
-  type: 'hole';
+interface CirclePart extends PartBase {
+  type: 'circle';
   options: {
     diameter: number;
   };
@@ -90,6 +90,6 @@ interface SegmentPart extends PartBase {
   type: 'segment';
 }
 
-type PartWithOptions = KnobPart | HolePart | SliderPart;
+type PartWithOptions = KnobPart | CirclePart | SliderPart;
 type PartWithoutOptions = PlatePart | SegmentPart;
 type Part = PartWithoutOptions | PartWithOptions;

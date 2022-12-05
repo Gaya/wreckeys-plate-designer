@@ -9,11 +9,11 @@ import Modal from '../../Modal/Modal';
 import knob from './knob.svg';
 import slider from './slider.svg';
 import segment from './segment.svg';
-import hole from './hole.svg';
+import circle from './circle.svg';
 
 import './Parts.scss';
 import PartRow from './PartRow';
-import { holePart } from '../../../parts/hole';
+import { circlePart } from '../../../parts/circle';
 import { sliderPart } from '../../../parts/slider';
 import { segmentPart } from '../../../parts/segment';
 
@@ -40,8 +40,8 @@ function Parts() {
         part = knobPart();
         break;
 
-      case 'hole':
-        part = holePart();
+      case 'circle':
+        part = circlePart();
         break;
 
       case 'slider':
@@ -88,9 +88,9 @@ function Parts() {
                 </button>
               </li>
               <li>
-                <button type="button" onClick={() => onAddPart('hole')}>
-                  <img src={hole} alt="Hole" />
-                  Hole
+                <button type="button" onClick={() => onAddPart('circle')}>
+                  <img src={circle} alt="Circle" />
+                  Circle
                 </button>
               </li>
             </ul>
