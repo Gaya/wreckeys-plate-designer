@@ -19,7 +19,9 @@
     "cra:start": "react-scripts start",
     "cra:build": "react-scripts build",
     "cra:test": "react-scripts test",
-    "cra:eject": "react-scripts eject"
+    "cra:eject": "react-scripts eject",
+    "precra:analyze": "npm run cra:build",
+    "cra:analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "hexo": {
     "version": "6.3.0"
@@ -73,6 +75,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@types/file-saver": "^2.0.5"
+    "@types/file-saver": "^2.0.5",
+    "source-map-explorer": "^2.5.3"
   }
 }
