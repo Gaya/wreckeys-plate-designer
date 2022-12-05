@@ -32,9 +32,6 @@ function Plate() {
           }, {
             name: 'Eurorack',
             value: 'eurorack',
-          }, {
-            name: 'Custom Size',
-            value: 'custom',
           }]}
           onUpdate={onUpdateType}
         />
