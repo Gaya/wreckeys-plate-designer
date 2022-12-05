@@ -1,0 +1,58 @@
+aside {
+    border-left: 1px solid var(--text);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 38px);
+
+    h2 {
+        color: var(--bg);
+        background: var(--text);
+        text-align: center;
+        font-size: 1em;
+        padding: 0 2em;
+        margin-bottom: 0.5em;
+        line-height: 2em;
+    }
+
+    fieldset {
+        border: 0;
+        padding: 0.5em 1em;
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        select {
+            display: block;
+            width: 100%;
+        }
+
+        &.inline {
+            display: flex;
+
+            label {
+                margin: 0 0 0 0.5em;
+                user-select: none;
+            }
+        }
+
+        &.Download {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .sidebar-option {
+        margin-bottom: 1em;
+        flex-grow: 0;
+    }
+
+    .sidebar-option-grow {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        overflow: auto;
+    }
+}

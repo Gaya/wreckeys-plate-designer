@@ -1,0 +1,155 @@
+.parts-options {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+  }
+
+  ul li {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: 0.5em;
+    align-items: center;
+
+    button {
+      border-width: 4px;
+      border-style: outset;
+      border-color: #ccc;
+      color: var(--text);
+      border-radius: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background: #dfdfdf;
+
+      &:hover, &:active, &:focus {
+        background: #ccc;
+        border-style: inset;
+      }
+    }
+
+    img {
+      display: block;
+      width: 100px;
+      height: 100px;
+      margin: 1em;
+    }
+  }
+}
+
+.PartRow {
+  margin: 0.5em 1em;
+  border-top: 1px solid var(--text);
+  padding: 1em 0 0.3em 0;
+
+  .options {
+    height: 25px;
+    width: 25px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 1px;
+    border-radius: 3px;
+
+    img {
+      display: block;
+      height: 14px;
+    }
+
+    &:hover, &:active, &:focus {
+      background: #ddd;
+    }
+  }
+
+  .PartRow_Name {
+    display: flex;
+
+    input {
+      flex-grow: 1;
+      padding: 0 0.5em;
+      border: 1px solid var(--text);
+      border-radius: 3px;
+    }
+
+    button {
+      margin-left: 0.5em;
+    }
+  }
+
+  .PartRow_Modal {
+    padding: 0 1em 1em;
+  }
+
+  .PartRow_Position {
+    margin: 1em 0;
+
+    fieldset {
+      padding: 0.5em 0 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    section {
+      width: 49%;
+      display: flex;
+      align-items: baseline;
+
+      label {
+        margin-right: 0.3em;
+        font-size: 0.8em;
+      }
+
+      input {
+        display: block;
+        flex-shrink: 1;
+        width: 100%;
+      }
+    }
+  }
+
+  .PartRow_Actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5em;
+
+    button {
+      margin-left: 1em;
+    }
+  }
+}
+
+.PartOptions {
+  fieldset {
+    margin: 1em 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    label {
+      margin: 0 0.5em 0 0;
+      flex-shrink: 1;
+    }
+
+    input, select {
+      flex-grow: 1;
+      width: auto;
+    }
+
+    .info {
+      width: 100%;
+      margin: 0.5em 0;
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+  }
+}
+
+.PartsList {
+  overflow: auto;
+}

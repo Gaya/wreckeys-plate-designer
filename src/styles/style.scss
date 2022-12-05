@@ -1,0 +1,62 @@
+@import 'reset';
+
+:root {
+  --main: #c03319;
+  --secondary: #a4c5ab;
+  --bg: #ffffff;
+  --text: #000100;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+html, body {
+  background: var(--bg);
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body, input, textarea, button {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+}
+
+button {
+  padding: 10px 21px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  outline: none;
+  background-color: transparent;
+  color: var(--text);
+  border-color: var(--text);
+  cursor: pointer;
+
+  &:hover, &:active, &:focus {
+    background-color: var(--text);
+    color: var(--bg);
+    border: 2px solid var(--text);
+  }
+
+  &.main {
+    color: var(--main);
+    border-color: var(--main);
+
+    &:hover, &:active, &:focus {
+      background-color: var(--main);
+      color: var(--bg);
+      border: 2px solid var(--main);
+    }
+  }
+}
+
+#root {
+  flex-grow: 1;
+  display: flex;
+}

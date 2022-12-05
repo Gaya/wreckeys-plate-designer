@@ -5,23 +5,57 @@
     "type": "git",
     "url": "git+https://github.com/Gaya/wreckeys-site.git"
   },
+  "homepage": "https://wreckeys.com/designer",
   "author": "Gaya Kessler, CleverNode",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/Gaya/wreckeys-site/issues"
   },
-  "homepage": "https://github.com/Gaya/wreckeys-site#readme",
   "scripts": {
-    "build": "rm -rf public && hexo generate",
+    "build": "rm -rf static && npm run generate && npm run cra:build && mv build static/designer",
+    "generate": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
-    "start": "npm run server"
+    "start": "npm run server",
+    "cra:start": "react-scripts start",
+    "cra:build": "react-scripts build",
+    "cra:test": "react-scripts test",
+    "cra:eject": "react-scripts eject",
+    "precra:analyze": "npm run cra:build",
+    "cra:analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "hexo": {
     "version": "6.3.0"
   },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.3",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "dxf-writer": "^1.18.4",
+    "file-saver": "^2.0.5",
     "hexo": "^6.3.0",
     "hexo-asset-link": "^2.2.1",
     "hexo-auto-canonical": "^0.1.1",
@@ -33,6 +67,17 @@
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-stylus": "^2.1.0",
-    "hexo-server": "^3.0.0"
+    "hexo-server": "^3.0.0",
+    "nanoid": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "sass": "^1.56.1",
+    "typescript": "^4.9.3",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.5",
+    "source-map-explorer": "^2.5.3"
   }
 }
