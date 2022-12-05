@@ -5,13 +5,15 @@
     "type": "git",
     "url": "git+https://github.com/Gaya/wreckeys-site.git"
   },
+  "homepage": "https://wreckeys.com/designer",
   "author": "Gaya Kessler, CleverNode",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/Gaya/wreckeys-site/issues"
   },
   "scripts": {
-    "build": "rm -rf public && hexo generate",
+    "build": "rm -rf static && npm run generate && npm run cra:build && mv build static/designer",
+    "generate": "hexo generate",
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "server": "hexo server",
