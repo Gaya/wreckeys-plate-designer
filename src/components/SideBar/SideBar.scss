@@ -29,6 +29,10 @@ aside {
             width: 100%;
         }
 
+        input[type=number] {
+            width: 100%;
+        }
+
         &.inline {
             display: flex;
 
@@ -54,5 +58,16 @@ aside {
         flex-grow: 1;
         flex-direction: column;
         overflow: auto;
+    }
+
+    .options-button {
+        border: 0;
+        padding: 0;
+        margin: 16px 0 0 16px;
+
+        &:hover, &:active, &:focus {
+            background: var(--bg);
+            color: var(--main);
+        }
     }
 }

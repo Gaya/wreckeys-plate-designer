@@ -23,7 +23,7 @@ body {
   flex-direction: column;
 }
 
-html, body, input, textarea, button {
+html, body, input, textarea, button, select {
   font-family: "JetBrains Mono", monospace;
   font-weight: 600;
 }
@@ -53,6 +53,33 @@ button {
       color: var(--bg);
       border: 2px solid var(--main);
     }
+  }
+}
+
+select, input[type=number] {
+  border: 1px solid var(--text);
+  background: var(--bg);
+  padding: 0.3em 0.4em;
+  height: 26px;
+}
+
+.input {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  width: auto;
+
+  input[type=number] {
+    border-right: 0;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--text);
+    border-left: 0;
+    padding: 0 0.4em 0 0;
+    font-size: 0.8em;
   }
 }
 
