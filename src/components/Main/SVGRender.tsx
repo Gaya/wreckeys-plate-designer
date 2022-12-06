@@ -19,12 +19,8 @@ function SVGRender() {
   const totalWidth = padding * 2 + width;
   const totalHeight = padding * 2 + height;
 
-  const canvasWidth =  height > width
-    ? editor.width * (totalHeight / editor.height)
-    : totalWidth;
-  const canvasHeight =  width > height
-    ? editor.height * (totalWidth / editor.width)
-    : totalHeight;
+  const canvasWidth = height > width ? editor.width / editor.pixelRatio : totalWidth;
+  const canvasHeight = width > height ? editor.height / editor.pixelRatio : totalHeight;
 
   const platePart = plateToPart(plate);
 

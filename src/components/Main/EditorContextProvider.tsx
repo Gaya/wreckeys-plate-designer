@@ -65,6 +65,8 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
     });
 
     resizeObserver.observe(main);
+
+    return () => resizeObserver.disconnect();
   }, []);
 
   const value = useMemo((): EditorContextShape => ({
