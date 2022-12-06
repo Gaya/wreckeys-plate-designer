@@ -59,11 +59,25 @@ function PartRow({ part }: PartRowProps) {
             <fieldset>
               <section>
                 <label>x:</label>
-                <input type="number" value={part.offsetX?.toString().match(/\d+\.\d{3,}/) ? part.offsetX?.toFixed(2) : part.offsetX} onChange={onUpdateOffsetX} />
+                <div className="input">
+                  <input
+                    type="number"
+                    value={part.offsetX?.toString().match(/\d+\.\d{3,}/) ? part.offsetX?.toFixed(2) : part.offsetX}
+                    onChange={onUpdateOffsetX}
+                  />
+                  <span>mm</span>
+                </div>
               </section>
               <section>
                 <label>y:</label>
-                <input type="number" value={part.offsetY?.toString().match(/\d+\.\d{3,}/) ? part.offsetY?.toFixed(2) : part.offsetY} onChange={onUpdateOffsetY} />
+                <div className="input">
+                  <input
+                    type="number"
+                    value={part.offsetY?.toString().match(/\d+\.\d{3,}/) ? part.offsetY?.toFixed(2) : part.offsetY}
+                    onChange={onUpdateOffsetY}
+                  />
+                  <span>mm</span>
+                </div>
               </section>
             </fieldset>
           </div>

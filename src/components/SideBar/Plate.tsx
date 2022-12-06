@@ -26,7 +26,7 @@ function Plate() {
     <>
       <h2>Plate Settings</h2>
       <fieldset>
-        <label htmlFor="type">Plate Size</label>
+        <label htmlFor="type">Type of Plate</label>
         <Select
           name="type"
           value={type}
@@ -43,12 +43,17 @@ function Plate() {
       {(type === 'custom' || type === 'eurorack') && (
         <fieldset>
           <label htmlFor="width">Width</label>
-          <input
-            type="number"
-            value={width}
-            onChange={(e) => onUpdateWidth(parseFloat(e.target.value))}
-            min={1}
-          />
+          <div className="input">
+            <input
+              type="number"
+              value={width}
+              onChange={(e) => onUpdateWidth(parseFloat(e.target.value))}
+              min={1}
+            />
+            <span>
+              {type === 'eurorack' ? 'HP' : 'mm'}
+            </span>
+          </div>
         </fieldset>
       )}
       {type === '19inch' && (

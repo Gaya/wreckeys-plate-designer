@@ -12,31 +12,37 @@ function PartOptions({ part }: PartOptionsProps) {
       {'diameter' in part.options && (
         <fieldset>
           <label htmlFor="diameter">Diameter (hole):</label>
-          <input
-            id="diameter"
-            type="number"
-            min={0}
-            value={part.options.diameter}
-            onChange={(e) => {
-              const diameter = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { diameter });
-            }}
-          />
+          <div className="input">
+            <input
+              id="diameter"
+              type="number"
+              min={0}
+              value={part.options.diameter}
+              onChange={(e) => {
+                const diameter = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { diameter });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {'guideDiameter' in part.options && (
         <fieldset>
           <label htmlFor="guideDiameter">Mechanism diameter:</label>
-          <input
-            id="guideDiameter"
-            type="number"
-            min={0}
-            value={part.options.guideDiameter}
-            onChange={(e) => {
-              const guideDiameter = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { guideDiameter });
-            }}
-          />
+          <div className="input">
+            <input
+              id="guideDiameter"
+              type="number"
+              min={0}
+              value={part.options.guideDiameter}
+              onChange={(e) => {
+                const guideDiameter = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { guideDiameter });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {part.type === 'slider' && (
@@ -61,76 +67,91 @@ function PartOptions({ part }: PartOptionsProps) {
       {'width' in part.options && (
         <fieldset>
           <label htmlFor="width">Width:</label>
-          <input
-            id="width"
-            type="number"
-            min={0}
-            value={part.options.width}
-            onChange={(e) => {
-              const width = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { width });
-            }}
-          />
+          <div className="input">
+            <input
+              id="width"
+              type="number"
+              min={0}
+              value={part.options.width}
+              onChange={(e) => {
+                const width = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { width });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {'height' in part.options && (
         <fieldset>
           <label htmlFor="height">Height:</label>
-          <input
-            id="height"
-            type="number"
-            min={0}
-            value={part.options.height}
-            onChange={(e) => {
-              const height = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { height });
-            }}
-          />
+          <div className="input">
+            <input
+              id="height"
+              type="number"
+              min={0}
+              value={part.options.height}
+              onChange={(e) => {
+                const height = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { height });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {'radius' in part.options && (
         <fieldset>
           <label htmlFor="radius">Rounded Corners:</label>
-          <input
-            id="radius"
-            type="number"
-            value={part.options.radius}
-            min={0}
-            onChange={(e) => {
-              const radius = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { radius });
-            }}
-          />
+          <div className="input">
+            <input
+              id="radius"
+              type="number"
+              value={part.options.radius}
+              min={0}
+              onChange={(e) => {
+                const radius = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { radius });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {'x' in part.options && (
         <fieldset>
           <label htmlFor="x">Length X-Axis:</label>
-          <input
-            id="x"
-            type="number"
-            min={0}
-            value={part.options.x}
-            onChange={(e) => {
-              const x = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { x });
-            }}
-          />
+          <div className="input">
+            <input
+              id="x"
+              type="number"
+              min={0}
+              value={part.options.x}
+              onChange={(e) => {
+                const x = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { x });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
       {'y' in part.options && (
         <fieldset>
           <label htmlFor="y">Length Y-Axis:</label>
-          <input
-            id="y"
-            type="number"
-            min={0}
-            value={part.options.y}
-            onChange={(e) => {
-              const y = parseFloat(e.target.value)
-              actions.updatePartOptions(part.id, { y });
-            }}
-          />
+          <div className="input">
+            <input
+              id="y"
+              type="number"
+              min={0}
+              value={part.options.y}
+              onChange={(e) => {
+                const y = parseFloat(e.target.value)
+                actions.updatePartOptions(part.id, { y });
+              }}
+            />
+            <span>mm</span>
+          </div>
         </fieldset>
       )}
     </div>
