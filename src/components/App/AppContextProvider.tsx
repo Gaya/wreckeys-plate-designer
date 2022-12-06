@@ -29,6 +29,7 @@ const defaultState: AppState = {
     type: '19inch',
     width: 19,
     height: 3,
+    radius: 3,
   },
   options: {
     showGuides: true,

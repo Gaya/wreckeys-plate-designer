@@ -4,6 +4,7 @@ interface Plate {
   type: '19inch' | 'eurorack' | 'custom';
   width: number;
   height: number;
+  radius: number;
 }
 
 type YPosition = 'top' | 'bottom' | 'middle';
