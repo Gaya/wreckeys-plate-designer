@@ -69,12 +69,17 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
     return () => resizeObserver.disconnect();
   }, []);
 
-  const value = useMemo((): EditorContextShape => ({
-    ...dimensions,
-    pixelRatio: totalWidth > totalHeight
-      ? dimensions.width / totalWidth
-      : dimensions.height / totalHeight,
-  }), [dimensions, totalHeight, totalWidth]);
+  const value = useMemo((): EditorContextShape => {
+    const pw = dimensions.width / totalWidth;
+    const ph = dimensions.height / totalHeight;
+
+    return {
+      ...dimensions,
+      pixelRatio: totalWidth * pw <= dimensions.width && totalHeight * pw <= dimensions.height
+        ? pw
+        : ph,
+    };
+  }, [dimensions, totalHeight, totalWidth]);
 
   return (
     <EditorContext.Provider value={value}>
