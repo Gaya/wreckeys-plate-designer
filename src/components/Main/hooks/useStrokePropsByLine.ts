@@ -1,10 +1,10 @@
 import { SVGAttributes } from 'react';
 
 interface StrokeProps {
-  stroke: SVGAttributes<any>['stroke'];
-  strokeWidth: SVGAttributes<any>['strokeWidth'];
-  strokeLinejoin: SVGAttributes<any>['strokeLinejoin'];
-  strokeDasharray: SVGAttributes<any>['strokeDasharray'];
+  stroke: SVGAttributes<unknown>['stroke'];
+  strokeWidth: SVGAttributes<unknown>['strokeWidth'];
+  strokeLinejoin: SVGAttributes<unknown>['strokeLinejoin'];
+  strokeDasharray: SVGAttributes<unknown>['strokeDasharray'];
 }
 
 function useStrokePropsByLine(line: PartLine): StrokeProps {

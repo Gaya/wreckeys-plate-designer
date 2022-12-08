@@ -2,27 +2,25 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function sliderPart(length = 60): SliderPart {
+export function sliderPart(options: SliderPart['options'] = { length: 60 }): SliderPart {
   return {
     id: nanoid(),
-    name: `Slider`,
+    name: 'Slider',
     type: 'slider',
-    width: function () {
+    width() {
       return 7.5;
     },
-    height: function () {
+    height() {
       return this.options.length;
     },
     rotation: 0,
     offsetX: 0,
     offsetY: 0,
-    options: {
-      length,
-    },
-    generateLines: function() {
+    options,
+    generateLines() {
       const drillHoleRadius = 2.2 / 2;
 
-      return  [
+      return [
         {
           id: 'mechanism',
           isGuide: true,
@@ -61,7 +59,7 @@ export function sliderPart(length = 60): SliderPart {
           width: 2.2,
           height: (this.height() - 8) + 0.4,
           radius: 0.2,
-        }
+        },
       ];
     },
     lines,

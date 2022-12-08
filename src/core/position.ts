@@ -4,7 +4,7 @@ function xOffsetRelative(line: PartLine, part: Part): number {
   }
 
   if (line.position.ax === 'middle') {
-    return part.width() / 2  - (line.type === 'rect' ? line.width / 2 : 0);
+    return part.width() / 2 - (line.type === 'rect' ? line.width / 2 : 0);
   }
 
   return 0;

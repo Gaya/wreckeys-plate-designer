@@ -2,28 +2,25 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function knobPart(diameter = 7.2, guideDiameter = 17): KnobPart {
+export function knobPart(options: KnobPart['options'] = { diameter: 7.2, guideDiameter: 17 }): KnobPart {
   return {
     id: nanoid(),
     name: 'Knob',
     type: 'knob',
-    width: function () {
+    width() {
       const { diameter: d, guideDiameter: gd } = this.options;
 
       return gd > d ? gd : d;
     },
-    height: function () {
+    height() {
       const { diameter: d, guideDiameter: gd } = this.options;
 
       return gd > d ? gd : d;
     },
     offsetX: 0,
     offsetY: 0,
-    options: {
-      diameter,
-      guideDiameter,
-    },
-    generateLines: function() {
+    options,
+    generateLines() {
       const { diameter: d, guideDiameter: gd } = this.options;
 
       return [

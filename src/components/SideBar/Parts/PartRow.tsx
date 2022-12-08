@@ -7,8 +7,8 @@ import Modal from '../../Modal/Modal';
 
 import PartOptions from './PartOptions';
 
-import options from './options.svg';
-import rotate from './rotate.svg';
+import options from './assets/options.svg';
+import rotate from './assets/rotate.svg';
 
 interface PartRowProps {
   part: Part;
@@ -37,7 +37,7 @@ function PartRow({ part }: PartRowProps) {
   }, [actions, part.id]);
 
   const onRemovePart = useCallback(() => {
-    // eslint-disable-next-line no-restricted-globals
+    // eslint-disable-next-line no-restricted-globals,no-alert
     if (confirm(`Are you sure you want to remove "${part.name}"`)) {
       actions.removePart(part.id);
       closeModal();
@@ -46,7 +46,7 @@ function PartRow({ part }: PartRowProps) {
 
   const onRotate = useCallback(() => {
     if (typeof part.rotation !== 'undefined') {
-      actions.updatePart(part.id, { rotation: (part.rotation + 90) % 360 })
+      actions.updatePart(part.id, { rotation: (part.rotation + 90) % 360 });
     }
   }, [actions, part.id, part.rotation]);
 
@@ -90,7 +90,7 @@ function PartRow({ part }: PartRowProps) {
             >
               Remove Part
             </button>
-            <button onClick={closeModal}>
+            <button type="button" onClick={closeModal}>
               Done
             </button>
           </div>

@@ -96,21 +96,19 @@ function mountingHoles(plate: Plate): PartLine[] {
       }];
     }
 
-    return (plate.width < 5 ? [1, 4] : [1, 2, 3, 4]).map((i): LineRect => {
-      return {
-        id: `mounting_hole_${i}`,
-        type: 'rect',
-        position: {
-          ax: i % 2 === 0 ? 'right' : 'left',
-          ay: i > 2 ? 'bottom' : 'top',
-          x: mountingHoleXOffset - mountingHoleWidth,
-          y: mountingHoleYOffset - mountingHoleDiameter / 2,
-        },
-        width: mountingHoleWidth,
-        height: mountingHoleDiameter,
-        radius: mountingHoleDiameter / 2,
-      };
-    });
+    return (plate.width < 5 ? [1, 4] : [1, 2, 3, 4]).map((i): LineRect => ({
+      id: `mounting_hole_${i}`,
+      type: 'rect',
+      position: {
+        ax: i % 2 === 0 ? 'right' : 'left',
+        ay: i > 2 ? 'bottom' : 'top',
+        x: mountingHoleXOffset - mountingHoleWidth,
+        y: mountingHoleYOffset - mountingHoleDiameter / 2,
+      },
+      width: mountingHoleWidth,
+      height: mountingHoleDiameter,
+      radius: mountingHoleDiameter / 2,
+    }));
   }
 
   return [];
@@ -119,19 +117,19 @@ function mountingHoles(plate: Plate): PartLine[] {
 export function plateToPart(plate: Plate): PlatePart {
   const width = plateWidth(plate);
   const height = plateHeight(plate);
-  const radius = plate.radius;
+  const { radius } = plate;
 
   return {
     id: 'plate',
     type: 'plate',
     name: 'Back plate',
-    width: function () {
+    width() {
       return width;
     },
-    height: function () {
+    height() {
       return height;
     },
-    generateLines: function() {
+    generateLines() {
       return [
         {
           id: 'base',

@@ -9,7 +9,7 @@ function toDXF(parts: Part[]): string {
 
   d.setUnits('Millimeters');
 
-  for (let part of parts) {
+  for (const part of parts) {
     // create layer for part
     d.addLayer(part.name, DXF.ACI.GREEN, 'CONTINUOUS');
     d.setActiveLayer(part.name);
@@ -30,7 +30,7 @@ function toDXF(parts: Part[]): string {
     };
 
     // go through lines
-    for (let line of part.lines()) {
+    for (const line of part.lines()) {
       if (line.isGuide) {
         continue;
       }
@@ -38,7 +38,7 @@ function toDXF(parts: Part[]): string {
       if (line.type === 'rect') {
         const { x, y } = calculatePosition(line, part);
 
-        const r = line.radius
+        const r = line.radius;
         const w = line.width;
         const h = line.height;
 

@@ -1,4 +1,6 @@
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+  createContext, ReactNode, useContext, useMemo, useState,
+} from 'react';
 
 import { isPartWithOptions } from '../../core/part';
 
@@ -40,12 +42,12 @@ const defaultState: AppState = {
 const AppContext = createContext<AppContextShape>({
   state: defaultState,
   actions: {
-    updatePlate: () => { throw new Error('Not implemented') },
-    setGuides: (newState: boolean) => { throw new Error('Not implemented') },
-    addPart: (part: Part) => { throw new Error('Not implemented') },
-    removePart: (id: Part['id']) => { throw new Error('Not implemented') },
-    updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented') },
-    updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => { throw new Error('Not implemented') },
+    updatePlate: () => { throw new Error('Not implemented'); },
+    setGuides: (newState: boolean) => { throw new Error('Not implemented'); },
+    addPart: (part: Part) => { throw new Error('Not implemented'); },
+    removePart: (id: Part['id']) => { throw new Error('Not implemented'); },
+    updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented'); },
+    updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => { throw new Error('Not implemented'); },
   },
 });
 
@@ -76,7 +78,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
       removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
       updatePart: (id, part) => {
         setParts((currentParts: Part[]) => {
-          return currentParts.map(function mergePart<T extends Part>(p: T): T {
+          return currentParts.map(<T extends Part>(p: T): T => {
             if (p.id !== id) {
               return p;
             }
@@ -90,7 +92,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
       },
       updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => {
         setParts((currentParts: Part[]) => {
-          return currentParts.map(function mergePart<T extends Part>(p: T): T {
+          return currentParts.map(<T extends Part>(p: T): T => {
             if (p.id === id && isPartWithOptions(p)) {
               return {
                 ...p,

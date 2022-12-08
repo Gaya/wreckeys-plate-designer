@@ -8,7 +8,12 @@ interface SelectProps<T extends string | number> {
   onUpdate: (newValue: T) => void;
 }
 
-function Select<T extends string | number>({ name, value, options, onUpdate }: SelectProps<T>) {
+function Select<T extends string | number>({
+  name,
+  value,
+  options,
+  onUpdate,
+}: SelectProps<T>) {
   return (
     <select
       value={value}

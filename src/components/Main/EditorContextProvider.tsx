@@ -1,4 +1,11 @@
-import { createContext, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import { plateHeight, plateWidth } from '../../core/calc';
 
@@ -39,13 +46,13 @@ function EditorContextProvider({ children }: { children?: ReactNode }) {
 
   useEffect(() => {
     if (!container.current) {
-      return;
+      return () => undefined;
     }
 
     const main = container.current.querySelector('.designer-main');
 
     if (!main) {
-      return;
+      return () => undefined;
     }
 
     const resizeObserver = new ResizeObserver(([mainContainer]) => {

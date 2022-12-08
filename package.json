@@ -40,7 +40,13 @@
     "rules": {
       "react/react-in-jsx-scope": "off",
       "react/require-default-props": "off",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "no-restricted-syntax": "off",
+      "no-continue": "off",
+      "arrow-body-style": "off",
+      "operator-assignment": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/jsx-props-no-spreading": "off"
     },
     "overrides": [
       {
