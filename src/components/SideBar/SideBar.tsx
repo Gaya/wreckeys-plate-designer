@@ -1,5 +1,4 @@
 import Parts from './Parts/Parts';
-import Save from './Save';
 import Plate from './Plate';
 
 import './SideBar.scss';
@@ -12,9 +11,6 @@ function SideBar() {
       </section>
       <section className="sidebar-option sidebar-option-grow">
         <Parts />
-      </section>
-      <section className="sidebar-option">
-        <Save />
       </section>
     </aside>
   );
