@@ -7,12 +7,13 @@ import App from './components/App/App';
 import AppContextProvider from './components/App/AppContextProvider';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById('root') as HTMLElement,
 );
+
 root.render(
   <React.StrictMode>
     <AppContextProvider>
       <App />
     </AppContextProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

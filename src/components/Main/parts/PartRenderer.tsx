@@ -1,4 +1,10 @@
-import { MouseEventHandler, useCallback, useEffect, useRef, useState } from 'react';
+import {
+  MouseEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import { useAppContext } from '../../App/AppContextProvider';
 
@@ -25,14 +31,16 @@ function PartRenderer({ part, editable }: PartRendererProps) {
       return;
     }
 
-    mousePosition.current = { x: e.pageX, y: e.pageY, dx: 0, dy: 0 };
+    mousePosition.current = {
+      x: e.pageX, y: e.pageY, dx: 0, dy: 0,
+    };
   }, [editable]);
 
   useEffect(() => {
     function handleMouseMove(e: MouseEvent) {
       if (mousePosition.current) {
-        const dx = e.pageX - mousePosition.current?.x;
-        const dy = e.pageY - mousePosition.current?.y;
+        const dx = e.pageX - (mousePosition.current?.x || 0);
+        const dy = e.pageY - (mousePosition.current?.y || 0);
 
         mousePosition.current = {
           ...mousePosition.current,

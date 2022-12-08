@@ -9,12 +9,17 @@ interface RulerProps {
   padding: number;
 }
 
-function Ruler({ length, size, padding, orientation }: RulerProps) {
+function Ruler({
+  length,
+  size,
+  padding,
+  orientation,
+}: RulerProps) {
   const { pixelRatio } = useEditorContext();
 
   const [
     mousePosition,
-    setMousePosition
+    setMousePosition,
   ] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -26,7 +31,6 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
 
     return () => window.removeEventListener('mousemove', updateMousePosition);
   }, []);
-
 
   if (length === 0 || pixelRatio === 0) {
     return null;
@@ -58,7 +62,7 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
         width={orientation === 'horizontal' ? (rulerSize * 5) * pixelRatio : size}
         height={orientation === 'vertical' ? (rulerSize * 5) * pixelRatio : size}
       />
-      {new Array(rulerSize).fill('').map((_, step) => {
+      {new Array(rulerSize).fill('').map((_, i) => i).map((step) => {
         if (!isDetailedRuler && step % 5 !== 0) {
           return null;
         }
@@ -67,7 +71,7 @@ function Ruler({ length, size, padding, orientation }: RulerProps) {
 
         const stepOffset = step * pixelRatio;
         const stepLineLength = step % stepDivision === 0 ? size / 3 : size / 5;
-        const textOffset = size * 2/3;
+        const textOffset = size * (2 / 3);
         const textTransformOffset = orientation === 'vertical' ? 1.7 : 2;
 
         return (

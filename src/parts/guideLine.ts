@@ -2,27 +2,24 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function guideLinePart(length = 40): GuideLinePart {
+export function guideLinePart(options: GuideLinePart['options'] = { x: 40, y: 0 }): GuideLinePart {
   return {
     id: nanoid(),
     name: 'Guide Line',
     type: 'guideline',
-    width: function () {
+    width() {
       return this.options.x;
     },
-    height: function () {
+    height() {
       return this.options.y;
     },
     offsetX: 0,
     offsetY: 0,
-    options: {
-      x: length,
-      y: 0,
-    },
-    generateLines: function() {
+    options,
+    generateLines() {
       const { x, y } = this.options;
 
-      return  [
+      return [
         {
           id: 'guide_line',
           isGuide: true,

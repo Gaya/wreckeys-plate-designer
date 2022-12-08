@@ -8,27 +8,43 @@ function Plate() {
   const { state, actions } = useAppContext();
   const [showOptions, setShowOptions] = useState(false);
 
-  const { type, width, height, radius } = state.plate;
+  const {
+    type,
+    width,
+    height,
+    radius,
+  } = state.plate;
   const { showGuides } = state.options;
 
   const onUpdateType = useCallback((newType: typeof type) => {
-    let width = 19;
-    let height = 3;
-    let radius = 3;
+    let w = 0;
+    let h = 0;
+    let r = 0;
 
     switch (newType) {
       case 'eurorack':
-        width = 18;
-        radius = 1;
+        w = 18;
+        r = 1;
         break;
       case 'custom':
-        width = 120;
-        height = 80;
-        radius = 0;
+        w = 120;
+        h = 80;
+        r = 0;
+        break;
+      case '19inch':
+      default:
+        w = 19;
+        h = 3;
+        r = 3;
         break;
     }
 
-    actions.updatePlate({ type: newType, height, width, radius });
+    actions.updatePlate({
+      type: newType,
+      height: h,
+      width: w,
+      radius: r,
+    });
   }, [actions]);
 
   const onUpdateWidth = useCallback((newWidth: typeof width) => {
@@ -47,6 +63,7 @@ function Plate() {
     <>
       <h2>Plate Settings</h2>
       <fieldset>
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label htmlFor="type">Type of Plate</label>
         <Select
           name="type"
@@ -71,6 +88,8 @@ function Plate() {
               <label htmlFor="width">Width</label>
               <div className="input">
                 <input
+                  id="width"
+                  name="width"
                   type="number"
                   value={width}
                   onChange={(e) => onUpdateWidth(parseFloat(e.target.value))}
@@ -155,7 +174,7 @@ function Plate() {
         {showOptions ? '- hide options' : '+ show options'}
       </button>
     </>
-  )
+  );
 }
 
 export default Plate;

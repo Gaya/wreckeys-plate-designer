@@ -13,7 +13,7 @@ function DXF() {
     const platePart = plateToPart(state.plate);
     const dxfString = toDXF([platePart, ...state.parts]);
 
-    const blob = new Blob([dxfString], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([dxfString], { type: 'text/plain;charset=utf-8' });
     saveAs(blob, 'wreckeys-plate-drawing.dxf');
   }, [state.parts, state.plate]);
 

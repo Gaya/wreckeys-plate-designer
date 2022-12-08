@@ -2,29 +2,27 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function rectPart(width = 40, height = 30): RectPart {
+export function rectPart(
+  options: RectPart['options'] = { radius: 0, width: 40, height: 30 },
+): RectPart {
   return {
     id: nanoid(),
-    name: `Rectangle`,
+    name: 'Rectangle',
     type: 'rect',
-    width: function () {
+    width() {
       return this.options.width;
     },
-    height: function () {
+    height() {
       return this.options.height;
     },
     offsetX: 0,
     offsetY: 0,
     rotation: 0,
-    options: {
-      radius: 0,
-      width,
-      height,
-    },
-    generateLines: function() {
+    options,
+    generateLines() {
       const { radius, width, height } = this.options;
 
-      return  [
+      return [
         {
           id: 'rect_hole',
           type: 'rect',

@@ -19,7 +19,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.diameter}
               onChange={(e) => {
-                const diameter = parseFloat(e.target.value)
+                const diameter = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { diameter });
               }}
             />
@@ -37,7 +37,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.guideDiameter}
               onChange={(e) => {
-                const guideDiameter = parseFloat(e.target.value)
+                const guideDiameter = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { guideDiameter });
               }}
             />
@@ -52,7 +52,7 @@ function PartOptions({ part }: PartOptionsProps) {
             id="size"
             value={part.options.length}
             onChange={(e) => {
-              const length = parseFloat(e.target.value)
+              const length = parseFloat(e.target.value);
               actions.updatePartOptions(part.id, { length });
             }}
           >
@@ -61,7 +61,9 @@ function PartOptions({ part }: PartOptionsProps) {
             <option value={75}>75mm</option>
             <option value={88}>88mm</option>
           </select>
-          <div className="info">Track size: {part.options.length - 4}mm</div>
+          <div className="info">
+            {`Track size: ${part.options.length - 4}mm`}
+          </div>
         </fieldset>
       )}
       {'width' in part.options && (
@@ -74,7 +76,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.width}
               onChange={(e) => {
-                const width = parseFloat(e.target.value)
+                const width = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { width });
               }}
             />
@@ -92,7 +94,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.height}
               onChange={(e) => {
-                const height = parseFloat(e.target.value)
+                const height = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { height });
               }}
             />
@@ -110,7 +112,7 @@ function PartOptions({ part }: PartOptionsProps) {
               value={part.options.radius}
               min={0}
               onChange={(e) => {
-                const radius = parseFloat(e.target.value)
+                const radius = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { radius });
               }}
             />
@@ -128,7 +130,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.x}
               onChange={(e) => {
-                const x = parseFloat(e.target.value)
+                const x = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { x });
               }}
             />
@@ -146,7 +148,7 @@ function PartOptions({ part }: PartOptionsProps) {
               min={0}
               value={part.options.y}
               onChange={(e) => {
-                const y = parseFloat(e.target.value)
+                const y = parseFloat(e.target.value);
                 actions.updatePartOptions(part.id, { y });
               }}
             />

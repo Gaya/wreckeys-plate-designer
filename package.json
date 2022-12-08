@@ -18,6 +18,8 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "start": "npm run server",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "tsc": "tsc",
     "cra:start": "react-scripts start",
     "cra:build": "react-scripts build",
     "cra:test": "react-scripts test",
@@ -31,8 +33,53 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "airbnb",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "react/require-default-props": "off",
+      "import/prefer-default-export": "off",
+      "no-restricted-syntax": "off",
+      "no-continue": "off",
+      "arrow-body-style": "off",
+      "operator-assignment": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/jsx-props-no-spreading": "off"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {
+          "react/jsx-filename-extension": [
+            1,
+            { "extensions": [".tsx"] }
+          ],
+          "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "ts": "never",
+              "tsx": "never"
+            }
+          ]
+        }
+      }
+    ],
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts", ".tsx"]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -78,6 +125,8 @@
   },
   "devDependencies": {
     "@types/file-saver": "^2.0.5",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "source-map-explorer": "^2.5.3"
   }
 }

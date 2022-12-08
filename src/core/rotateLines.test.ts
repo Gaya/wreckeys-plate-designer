@@ -77,7 +77,7 @@ describe('rotateLines', () => {
             x: 40,
             y: 20,
           },
-        }
+        },
       ];
     },
     lines,
@@ -153,7 +153,7 @@ describe('rotateLines', () => {
           x: 30,
           y: 30,
         },
-      }
+      },
     ];
 
     expect(rotateLines(partCopy)).toEqual(lines90deg);
@@ -225,7 +225,7 @@ describe('rotateLines', () => {
           x: 0,
           y: 20,
         },
-      }
+      },
     ];
 
     expect(rotateLines(partCopy)).toEqual(lines180deg);
@@ -297,7 +297,7 @@ describe('rotateLines', () => {
           x: 30,
           y: 10,
         },
-      }
+      },
     ];
 
     expect(rotateLines(partCopy)).toEqual(lines270deg);

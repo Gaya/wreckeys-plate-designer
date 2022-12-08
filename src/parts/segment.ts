@@ -5,19 +5,19 @@ import lines from './lines';
 export function segmentPart(): SegmentPart {
   return {
     id: nanoid(),
-    name: `Segment Display`,
+    name: 'Segment Display',
     type: 'segment',
-    width: function () {
+    width() {
       return 57;
     },
-    height: function () {
+    height() {
       return 24;
     },
     rotation: 0,
     offsetX: 0,
     offsetY: 0,
-    generateLines: function() {
-      return  [
+    generateLines() {
+      return [
         {
           id: 'device_guide',
           isGuide: true,
@@ -88,7 +88,7 @@ export function segmentPart(): SegmentPart {
             x: 40 - 0.05,
             y: this.height() - 2 - 0.05,
           },
-        }
+        },
       ];
     },
     lines,

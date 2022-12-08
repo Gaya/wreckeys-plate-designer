@@ -11,12 +11,12 @@ import { guideLinePart } from '../../../parts/guideLine';
 import { useAppContext } from '../../App/AppContextProvider';
 import Modal from '../../Modal/Modal';
 
-import knob from './knob.svg';
-import slider from './slider.svg';
-import segment from './segment.svg';
-import circle from './circle.svg';
-import rect from './rect.svg';
-import guide from './guide.svg';
+import knob from './assets/knob.svg';
+import slider from './assets/slider.svg';
+import segment from './assets/segment.svg';
+import circle from './assets/circle.svg';
+import rect from './assets/rect.svg';
+import guide from './assets/guide.svg';
 
 import './Parts.scss';
 import PartRow from './PartRow';
@@ -62,6 +62,9 @@ function Parts() {
 
       case 'guideline':
         part = guideLinePart();
+        break;
+
+      default:
         break;
     }
 

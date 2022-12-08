@@ -104,8 +104,8 @@ function rotateLines(part: Part): PartLine[] {
     const x = parseFloat(lineCopy.position.x.toFixed(2));
     const y = parseFloat(lineCopy.position.y.toFixed(2));
 
-    lineCopy.position.x = x === -0 ? 0 : x;
-    lineCopy.position.y = y === -0 ? 0 : y;
+    lineCopy.position.x = x === 0 ? 0 : x;
+    lineCopy.position.y = y === 0 ? 0 : y;
 
     return lineCopy;
   });

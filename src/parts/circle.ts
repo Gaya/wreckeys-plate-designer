@@ -2,26 +2,24 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function circlePart(diameter = 6): CirclePart {
+export function circlePart(options: CirclePart['options'] = { diameter: 6 }): CirclePart {
   return {
     id: nanoid(),
-    name: `Hole`,
+    name: 'Hole',
     type: 'circle',
-    width: function () {
+    width() {
       return this.options.diameter;
     },
-    height: function () {
+    height() {
       return this.options.diameter;
     },
     offsetX: 0,
     offsetY: 0,
-    options: {
-      diameter,
-    },
-    generateLines: function() {
+    options,
+    generateLines() {
       const { diameter } = this.options;
 
-      return  [
+      return [
         {
           id: 'main_hole',
           type: 'circle',
