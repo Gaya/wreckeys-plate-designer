@@ -15,7 +15,7 @@ jobs:
       - name: Install NPM dependencies
         run: npm i
       - name: Lint
-        uses: wearerequired/lint-action@v2.1.0
+        run: npm run lint
       - name: Check TypeScript
         run: npm run tsc
       - name: Run Jest
