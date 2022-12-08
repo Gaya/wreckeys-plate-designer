@@ -19,6 +19,7 @@
     "server": "hexo server",
     "start": "npm run server",
     "lint": "eslint ./src --ext .ts,.tsx",
+    "tsc": "tsc",
     "cra:start": "react-scripts start",
     "cra:build": "react-scripts build",
     "cra:test": "react-scripts test",
