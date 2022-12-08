@@ -6,7 +6,7 @@ import toDXF from '../../core/toDXF';
 
 import { useAppContext } from '../App/AppContextProvider';
 
-function DXF() {
+function Save() {
   const { state } = useAppContext();
 
   const convertToDXF = useCallback(() => {
@@ -29,4 +29,4 @@ function DXF() {
   );
 }
 
-export default DXF;
+export default Save;

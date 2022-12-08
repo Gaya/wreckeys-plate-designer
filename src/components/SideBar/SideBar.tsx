@@ -1,6 +1,6 @@
-import DXF from './DXF';
-import Plate from './Plate';
 import Parts from './Parts/Parts';
+import Save from './Save';
+import Plate from './Plate';
 
 import './SideBar.scss';
 
@@ -14,7 +14,7 @@ function SideBar() {
         <Parts />
       </section>
       <section className="sidebar-option">
-        <DXF />
+        <Save />
       </section>
     </aside>
   );

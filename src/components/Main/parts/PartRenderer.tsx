@@ -80,7 +80,7 @@ function PartRenderer({ part, editable }: PartRendererProps) {
     <g
       id={part.id}
       onMouseDown={onMouseDown}
-      transform={`translate(${x}, ${y})`}
+      transform={`translate(${x || 0}, ${y || 0})`}
       style={{ cursor: editable ? 'move' : 'default' }}
     >
       {part.lines().map((line) => {
