@@ -1,9 +1,16 @@
-import { ChangeEvent, useCallback, useRef } from 'react';
+import {
+  ChangeEvent,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 import { saveAs } from 'file-saver';
 
 import { plateToPart } from '../../parts/plate';
 import toDXF from '../../core/toDXF';
 import { parseSaveFile, toSaveFormat } from '../../core/saveLoad';
+
+import Modal from '../Modal/Modal';
 
 import { useAppContext } from './AppContextProvider';
 
@@ -17,6 +24,7 @@ function saveFile(name: string, fileContents: string) {
 }
 
 function Header() {
+  const [isModalOpen, setModalOpen] = useState(false);
   const { state, actions } = useAppContext();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -75,6 +83,21 @@ function Header() {
 
   return (
     <header>
+      <Modal open={isModalOpen} onClose={() => setModalOpen(false)}>
+        <div className="AboutWreckeys">
+          <h2>{'Wreckey\'s Plate Designer'}</h2>
+          <p>
+            {'This plate designer is made by '}
+            <a href="https://theclevernode.com">Gaya Kessler</a>
+            {' and is free to use and '}
+            <a href="https://github.com/Gaya/wreckeys-site">completely open-source.</a>
+          </p>
+          <p>
+            {'Learn more about Wreckey\'s Plate Designer in '}
+            <a href="https://wreckeys.com/diy-plate-designer/">the launch article.</a>
+          </p>
+        </div>
+      </Modal>
       <menu>
         <ul>
           <li>
@@ -91,6 +114,11 @@ function Header() {
           </li>
           <li>
             <button type="button" onClick={convertToDXF}>Export to DXF</button>
+          </li>
+          <li>
+            <button type="button" onClick={() => setModalOpen(true)}>
+              About
+            </button>
           </li>
           <li>
             <a href="https://wreckeys.com">{'← Back to Wreckey\'s'}</a>

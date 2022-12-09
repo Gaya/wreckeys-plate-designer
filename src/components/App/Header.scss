@@ -64,4 +64,29 @@ header {
       }
     }
   }
+
+  .AboutWreckeys {
+    max-width: 400px;
+    padding: 1em;
+
+    h2 {
+      margin-bottom: 1em;
+      font-size: 1.2em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 1em 0;
+    }
+
+    a {
+      color: var(--main);
+      text-decoration: underline;
+      padding: 0;
+
+      &:hover, &active, &focus {
+        color: var(---text);
+      }
+    }
+  }
 }
