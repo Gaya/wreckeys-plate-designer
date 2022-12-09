@@ -24,6 +24,7 @@ function Plate() {
     switch (newType) {
       case 'eurorack':
         w = 18;
+        h = 3;
         r = 1;
         break;
       case 'custom':
@@ -129,7 +130,7 @@ function Plate() {
               </div>
             </fieldset>
           )}
-          {type === '19inch' && (
+          {(type === '19inch' || type === 'eurorack') && (
             <fieldset>
               <label htmlFor="height">Height</label>
               <Select
