@@ -2,7 +2,14 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function circlePart(options: CirclePart['options'] = { diameter: 6 }): CirclePart {
+const defaultOptions = { diameter: 6 };
+
+export function circlePart(opts?: Partial<CirclePart['options']>): CirclePart {
+  const options = {
+    diameter: typeof opts?.diameter === 'undefined'
+      ? defaultOptions.diameter : opts?.diameter,
+  };
+
   return {
     id: nanoid(),
     name: 'Hole',

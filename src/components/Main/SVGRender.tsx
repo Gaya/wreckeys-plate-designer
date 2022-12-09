@@ -25,7 +25,7 @@ function SVGRender() {
   const platePart = plateToPart(plate);
 
   return (
-    <svg viewBox={`0 0 ${canvasWidth} ${canvasHeight}`}>
+    <svg viewBox={`0 0 ${canvasWidth || 0} ${canvasHeight || 0}`}>
       <g transform={`translate(${padding}, ${padding})`}>
         <PartRenderer part={platePart} />
         {parts.map((part) => (

@@ -4,7 +4,7 @@ date: 2022-12-05 14:30:00
 description: Tool to design your own 19" or Eurorack plates and download a usable CAD file.
 tags:
 ---
-I've made a little tool so you can design your own [19"](https://en.wikipedia.org/wiki/19-inch_rack) or [Eurorack](https://en.wikipedia.org/wiki/Eurorack) rackable plate.
+I've made a little tool with which you can design your own [19"](https://en.wikipedia.org/wiki/19-inch_rack) or [Eurorack](https://en.wikipedia.org/wiki/Eurorack) rackable plate.
 
 After picking a size and placing parts you want to cut out you can download a .DXF format file to
 send to you favourite laser cutting company, so they can turn it into an actual plate for you.

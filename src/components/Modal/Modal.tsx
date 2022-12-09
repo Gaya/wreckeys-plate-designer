@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */
+
 import { ReactNode } from 'react';
 
 import './Modal.scss';
@@ -14,14 +16,14 @@ function Modal({ open, onClose, children }: ModalProps) {
   }
 
   return (
-    <button type="button" className="ModalWrapper" onClick={onClose}>
-      <button type="button" className="ModalContent" onClick={(e) => e.stopPropagation()}>
+    <div className="ModalWrapper" onClick={onClose}>
+      <div className="ModalContent" onClick={(e) => e.stopPropagation()}>
         <button className="ModalClose" type="button" onClick={onClose}>Close</button>
         <div className="ModalChildren">
           {children}
         </div>
-      </button>
-    </button>
+      </div>
+    </div>
   );
 }
 
