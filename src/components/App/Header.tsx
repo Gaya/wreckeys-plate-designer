@@ -20,6 +20,18 @@ function Header() {
   const { state, actions } = useAppContext();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const onNew = useCallback(() => {
+    if (window.confirm('Are you sure you want to start a new design?')) {
+      actions.setParts([]);
+      actions.updatePlate({
+        type: '19inch',
+        width: 19,
+        height: 3,
+        radius: 3,
+      });
+    }
+  }, [actions]);
+
   const onLoadFile = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     if (fileInputRef.current) {
       const file = fileInputRef.current.files ? fileInputRef.current.files[0] : null;
@@ -66,10 +78,15 @@ function Header() {
       <menu>
         <ul>
           <li>
-            <button type="button" onClick={convertToSave}>Save Design</button>
+            <button type="button" onClick={onNew}>
+              New
+            </button>
           </li>
           <li>
-            <button type="button" onClick={loadSave}>Load Design</button>
+            <button type="button" onClick={convertToSave}>Save</button>
+          </li>
+          <li>
+            <button type="button" onClick={loadSave}>Load</button>
             <input type="file" onChange={onLoadFile} accept=".wrk" ref={fileInputRef} />
           </li>
           <li>
