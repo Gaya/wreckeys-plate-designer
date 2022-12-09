@@ -3,6 +3,7 @@ import { saveAs } from 'file-saver';
 
 import { plateToPart } from '../../parts/plate';
 import toDXF from '../../core/toDXF';
+import { toSaveFormat } from '../../core/saveLoad';
 
 import { useAppContext } from './AppContextProvider';
 
@@ -10,18 +11,25 @@ import logo from './wreckeys-logo.svg';
 
 import './Header.scss';
 
+function saveFile(name: string, fileContents: string) {
+  const blob = new Blob([fileContents], { type: 'text/plain;charset=utf-8' });
+  saveAs(blob, name);
+}
+
 function Header() {
   const { state } = useAppContext();
+
+  const convertToSave = useCallback(() => {
+    const saveString = toSaveFormat(state.plate, state.parts);
+
+    saveFile('plate.json', saveString);
+  }, [state.parts, state.plate]);
 
   const convertToDXF = useCallback(() => {
     const platePart = plateToPart(state.plate);
     const dxfString = toDXF([platePart, ...state.parts]);
 
-    const blob = new Blob([dxfString], { type: 'text/plain;charset=utf-8' });
-    saveAs(blob, 'wreckeys-plate-drawing.dxf');
-
-    // eslint-disable-next-line no-alert
-    window.alert('Converted to DXF');
+    saveFile('wreckeys-plate-drawing.dxf', dxfString);
   }, [state.parts, state.plate]);
 
   return (
@@ -29,7 +37,7 @@ function Header() {
       <menu>
         <ul>
           <li>
-            <button type="button">Save Design</button>
+            <button type="button" onClick={convertToSave}>Save Design</button>
           </li>
           <li>
             <button type="button" onClick={convertToDXF}>Export to DXF</button>
