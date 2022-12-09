@@ -18,7 +18,7 @@
     "deploy": "hexo deploy",
     "server": "hexo server",
     "start": "npm run server",
-    "lint": "eslint ./src --ext .ts,.tsx",
+    "lint": "eslint ./src --ext .ts,.tsx --max-warnings 0",
     "tsc": "tsc",
     "cra:start": "react-scripts start",
     "cra:build": "react-scripts build",
