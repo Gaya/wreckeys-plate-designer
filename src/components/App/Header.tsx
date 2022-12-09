@@ -29,6 +29,7 @@ function Header() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const onNew = useCallback(() => {
+    // eslint-disable-next-line no-alert
     if (window.confirm('Are you sure you want to start a new design?')) {
       actions.setParts([]);
       actions.updatePlate({
@@ -40,7 +41,7 @@ function Header() {
     }
   }, [actions]);
 
-  const onLoadFile = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+  const onLoadFile = useCallback(() => {
     if (fileInputRef.current) {
       const file = fileInputRef.current.files ? fileInputRef.current.files[0] : null;
 
