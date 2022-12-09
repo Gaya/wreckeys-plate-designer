@@ -39,6 +39,10 @@ header {
         display: flex;
         align-items: stretch;
 
+        input[type=file] {
+          display: none;
+        }
+
         button, a {
           font-size: 0.8em;
           color: var(--bg);

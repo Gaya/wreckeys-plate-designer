@@ -2,9 +2,18 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function rectPart(
-  options: RectPart['options'] = { radius: 0, width: 40, height: 30 },
-): RectPart {
+const defaultOptions = { radius: 0, width: 40, height: 30 };
+
+export function rectPart(opts?: Partial<RectPart['options']>): RectPart {
+  const options = {
+    radius: typeof opts?.radius === 'undefined'
+      ? defaultOptions.radius : opts?.radius,
+    width: typeof opts?.width === 'undefined'
+      ? defaultOptions.width : opts?.width,
+    height: typeof opts?.height === 'undefined'
+      ? defaultOptions.height : opts?.height,
+  };
+
   return {
     id: nanoid(),
     name: 'Rectangle',

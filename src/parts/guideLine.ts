@@ -2,7 +2,14 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function guideLinePart(options: GuideLinePart['options'] = { x: 40, y: 0 }): GuideLinePart {
+const defaultOptions = { x: 40, y: 0 };
+
+export function guideLinePart(opts?: Partial<GuideLinePart['options']>): GuideLinePart {
+  const options = {
+    x: typeof opts?.x === 'undefined' ? defaultOptions.x : opts?.x,
+    y: typeof opts?.y === 'undefined' ? defaultOptions.y : opts?.y,
+  };
+
   return {
     id: nanoid(),
     name: 'Guide Line',

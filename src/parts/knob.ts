@@ -2,7 +2,16 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function knobPart(options: KnobPart['options'] = { diameter: 7.2, guideDiameter: 17 }): KnobPart {
+const defaultOptions = { diameter: 7.2, guideDiameter: 17 };
+
+export function knobPart(opts?: Partial<KnobPart['options']>): KnobPart {
+  const options = {
+    diameter: typeof opts?.diameter === 'undefined'
+      ? defaultOptions.diameter : opts?.diameter,
+    guideDiameter: typeof opts?.guideDiameter === 'undefined'
+      ? defaultOptions.guideDiameter : opts?.guideDiameter,
+  };
+
   return {
     id: nanoid(),
     name: 'Knob',

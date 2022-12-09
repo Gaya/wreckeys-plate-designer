@@ -2,7 +2,14 @@ import { nanoid } from 'nanoid';
 
 import lines from './lines';
 
-export function sliderPart(options: SliderPart['options'] = { length: 60 }): SliderPart {
+const defaultOptions = { length: 60 };
+
+export function sliderPart(opts?: Partial<SliderPart['options']>): SliderPart {
+  const options = {
+    length: typeof opts?.length === 'undefined'
+      ? defaultOptions.length : opts?.length,
+  };
+
   return {
     id: nanoid(),
     name: 'Slider',

@@ -16,6 +16,7 @@ interface AppActions {
   updatePlate: (newState: Partial<AppState['plate']>) => void;
   setGuides: (newState: boolean) => void;
   addPart: (part: Part) => void;
+  setParts: (parts: Part[]) => void;
   removePart: (id: Part['id']) => void;
   updatePart: (id: Part['id'], part: Partial<Part>) => void;
   updatePartOptions: (id: Part['id'], newOptions: Partial<PartWithOptions['options']>) => void;
@@ -45,6 +46,7 @@ const AppContext = createContext<AppContextShape>({
     updatePlate: () => { throw new Error('Not implemented'); },
     setGuides: (newState: boolean) => { throw new Error('Not implemented'); },
     addPart: (part: Part) => { throw new Error('Not implemented'); },
+    setParts: (parts: Part[]) => { throw new Error('Not implemented'); },
     removePart: (id: Part['id']) => { throw new Error('Not implemented'); },
     updatePart: (id: Part['id'], part: Partial<Part>) => { throw new Error('Not implemented'); },
     updatePartOptions: (id: Part['id'], options: Partial<PartWithOptions['options']>) => { throw new Error('Not implemented'); },
@@ -75,6 +77,7 @@ function AppContextProvider({ children }: { children?: ReactNode }) {
       updatePlate: (newState) => setPlate((prevState) => ({ ...prevState, ...newState })),
       setGuides: (newState) => setShowGuides(newState),
       addPart: (part) => setParts((currentParts) => [...currentParts, part]),
+      setParts: (newParts) => setParts(newParts),
       removePart: (id) => setParts((currentParts) => currentParts.filter((p) => p.id !== id)),
       updatePart: (id, part) => {
         setParts((currentParts: Part[]) => {
