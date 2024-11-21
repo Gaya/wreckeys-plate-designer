@@ -1,8 +1,8 @@
 ---
-title: Frankensoil 1.0, my first build.
+title: Frankensoil 1.0, my first custom MIDI controller build.
 description: How I created my first ever custom-made MIDI controller.
 date: 2022-11-11 15:00:00
-tags: MIDI, frankensoil, weekend build, custom
+tags: ["MIDI", "frankensoil", "weekend build", "custom"]
 ---
 About a year I ago I started my first custom-made MIDI controller build. The results of which [I shared on GitHub (including arduino code)](https://github.com/Gaya/frankensoil). The following is a copy of that story:
 
@@ -140,6 +140,6 @@ After some changes and tweaks in the code it works perfectly, and I am really wi
 
 I'll probably get a professionally done laser cut version of the board, but it was fun to experience wood working for once.
 
-You can find all the code and other stuff in this repository.
+You can find all the code and other stuff [in this repository]((https://github.com/Gaya/frankensoil)).
 
 Cheers! Gaya
