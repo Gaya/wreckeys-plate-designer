@@ -17,7 +17,7 @@ Then I found out the that guy we were doing [band practise](https://deadsoil.bio
 cutter and actually cuts wood and plastics. This would be perfect as a face plate for Frankensoil so
 I thought.
 
-![Frankensoil MK2](frankensoil_4_1.webp)
+![Frankensoil MK2](frankensoil-improved/frankensoil_4_1.webp)
 
 As it turns out the plastic used was not very sturdy and needed support in order for it to be
 playable. Also not ideal... but the unit did look a lot better.
@@ -31,7 +31,7 @@ However, during live shows I used the "tap tempo" functionality of the DeepMind 
 the tempo the music the rest of the band was playing live. The Novation Peak does not have a 
 dedicated button for this. This meant I had to make my own.
 
-![Frankensoil MK3](frankensoil_4_2.webp)
+![Frankensoil MK3](frankensoil-improved/frankensoil_4_2.webp)
 
 I bought a blank metal 3U 19" faceplate and used a rotary tool to cut out holes for the components I
 was going to use. Note that the pitch bend and mod wheel are missing as they were too much work to
@@ -43,7 +43,7 @@ match to the correct BPM. The display on the left will show the BPM and the butt
 to the beat as well for visual feedback. The knob is for manually setting the BPM, but I rarely use
 it.
 
-![Frankensoil MK3 with a light](frankensoil_4_3.webp)
+![Frankensoil MK3 with a light](frankensoil-improved/frankensoil_4_3.webp)
 
 ## Version 4.0, The Metal One With a Nice Finish
 
@@ -54,30 +54,30 @@ look of version 2.0. Also, the pitch and MOD wheels were really nice to have.
 So I learned to use CAD and ordered what I thought was a laser cut hard metal plate. I wanted to
 test if this company was going to make parts I could use.
 
-![Frankensoil MK4 cut out](frankensoil_4_4.webp)
+![Frankensoil MK4 cut out](frankensoil-improved/frankensoil_4_4.webp)
 
 While the results of the cuts were perfect, the material was not what I expected. It was a bit
 flimsy, but I could still use it with proper support. That gave me the idea of modding the plate of
 version 3.0 to fit the holes of this clean version. So back to cutting (and swearing).
 
-![Frankensoil MK4 modded plate](frankensoil_4_5.webp)
+![Frankensoil MK4 modded plate](frankensoil-improved/frankensoil_4_5.webp)
 
 These cuts in combination with the white plate are plenty enough to support the flimsiness (is that 
 a word?) of the white plate.
 
-![Frankensoil MK4 lined up](frankensoil_4_6.webp)
+![Frankensoil MK4 lined up](frankensoil-improved/frankensoil_4_6.webp)
 
 I lined of the white plate and started mounting on the components.
 
-![Frankensoil MK4 mounting components](frankensoil_4_7.webp)
+![Frankensoil MK4 mounting components](frankensoil-improved/frankensoil_4_7.webp)
 
 I was quite happy with the end result!
 
-![Frankensoil MK4 the result](frankensoil_4_8.webp)
+![Frankensoil MK4 the result](frankensoil-improved/frankensoil_4_8.webp)
 
 Then I quickly mounted it in my mixer case and voilà.
 
-![Frankensoil MK4 all racked up](frankensoil_4_9.webp)
+![Frankensoil MK4 all racked up](frankensoil-improved/frankensoil_4_9.webp)
 
 The pitch and MOD wheels are back. The display and button fit way better now too. And yes... I 
 totally forgot to remove the ductape and glue the white plate to the metal one. I'll do that later.

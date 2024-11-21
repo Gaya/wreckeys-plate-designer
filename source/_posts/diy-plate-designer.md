@@ -11,7 +11,7 @@ send to you favourite laser cutting company, so they can turn it into an actual 
 
 [Try the DIY Plate Designer here.](/designer) 
 
-![Screenshot of the DIY plate designer](./plate-designer.webp)
+![Screenshot of the DIY plate designer](diy-plate-designer/plate-designer.webp)
 
 ## Why this tool?
 
