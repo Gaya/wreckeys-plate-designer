@@ -90,7 +90,7 @@ function Header() {
             {'This plate designer is made by '}
             <a href="https://theclevernode.com">Gaya Kessler</a>
             {' and is free to use and '}
-            <a href="https://github.com/Gaya/wreckeys-plate">completely open-source.</a>
+            <a href="https://github.com/Gaya/wreckeys-plate-designer">completely open-source.</a>
           </p>
           <p>
             {'Learn more about Wreckey\'s Plate Designer in '}
