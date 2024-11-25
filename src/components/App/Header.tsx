@@ -90,11 +90,11 @@ function Header() {
             {'This plate designer is made by '}
             <a href="https://theclevernode.com">Gaya Kessler</a>
             {' and is free to use and '}
-            <a href="https://github.com/Gaya/wreckeys-site">completely open-source.</a>
+            <a href="https://github.com/Gaya/wreckeys-plate">completely open-source.</a>
           </p>
           <p>
             {'Learn more about Wreckey\'s Plate Designer in '}
-            <a href="https://wreckeys.com/diy-plate-designer/">the launch article.</a>
+            <a href="https://sauce.gaya.pizza/diy-plate-designer/">the launch article.</a>
           </p>
         </div>
       </Modal>
@@ -121,7 +121,7 @@ function Header() {
             </button>
           </li>
           <li>
-            <a href="https://wreckeys.com">{'← Back to Wreckey\'s'}</a>
+            <a href="https://sauce.gaya.pizza">← Back to sauce.gaya.pizza</a>
           </li>
         </ul>
       </menu>
